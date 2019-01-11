@@ -162,7 +162,7 @@ return [
         ],
 
 				'post-text-north-east' => [
-          '#label' => 'Text 1',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -174,7 +174,7 @@ return [
         ],
 
 				'post-link-north-east' => [
-          '#label' => 'Link URL 1',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -185,9 +185,9 @@ return [
         ],
 
         'post-image-north-east' => [
-          '#label' => 'Image 1',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -212,7 +212,7 @@ return [
         ],
 
 				'post-text-east' => [
-          '#label' => 'Text 2',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -224,7 +224,7 @@ return [
         ],
 
 				'post-link-east' => [
-          '#label' => 'Link URL 2',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -235,9 +235,9 @@ return [
         ],
 
         'post-image-east' => [
-          '#label' => 'Image 2',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -262,7 +262,7 @@ return [
         ],
 
 				'post-text-south-east' => [
-          '#label' => 'Text 3',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -274,7 +274,7 @@ return [
         ],
 
 				'post-link-south-east' => [
-          '#label' => 'Link URL 3',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -285,9 +285,9 @@ return [
         ],
 
         'post-image-south-east' => [
-          '#label' => 'Image 3',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -312,7 +312,7 @@ return [
         ],
 
 				'post-text-south' => [
-          '#label' => 'Text 3',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -324,7 +324,7 @@ return [
         ],
 
 				'post-link-south' => [
-          '#label' => 'Link URL 3',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -335,9 +335,9 @@ return [
         ],
 
         'post-image-south' => [
-          '#label' => 'Image 3',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -362,7 +362,7 @@ return [
         ],
 
 				'post-text-south-west' => [
-          '#label' => 'Text 3',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -374,7 +374,7 @@ return [
         ],
 
 				'post-link-south-west' => [
-          '#label' => 'Link URL 3',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -385,9 +385,9 @@ return [
         ],
 
         'post-image-south-west' => [
-          '#label' => 'Image 3',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -412,7 +412,7 @@ return [
         ],
 
 				'post-text-west' => [
-          '#label' => 'Text 3',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -424,7 +424,7 @@ return [
         ],
 
 				'post-link-west' => [
-          '#label' => 'Link URL 3',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -435,9 +435,9 @@ return [
         ],
 
         'post-image-west' => [
-          '#label' => 'Image 3',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -462,7 +462,7 @@ return [
         ],
 
 				'post-text-north-west' => [
-          '#label' => 'Text 3',
+          '#label' => 'Text',
           '#description' => 'Write a text.',
           '#help' => 'Write a text.',
           '#type' => 'textarea',
@@ -474,7 +474,7 @@ return [
         ],
 
 				'post-link-north-west' => [
-          '#label' => 'Link URL 3',
+          '#label' => 'Link URL',
           '#description' => 'Enter an URL',
           '#help' => 'Enter an URL.',
           '#type' => 'textfield',
@@ -485,9 +485,9 @@ return [
         ],
 
         'post-image-north-west' => [
-          '#label' => 'Image 3',
-          '#description' => 'Embed an image in your post.',
-          '#help' => 'Embed an image in your post.',
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
