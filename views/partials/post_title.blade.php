@@ -3,7 +3,7 @@
 		id="post-title-{{ $blog_post['post-title']['#content-id'] }}"
 		data-cid="{{ $blog_post['post-title']['#content-id'] }}"
 		geometry="primitive: plane; width: 2"
-		position="{{ $points[0]['x'] }} 0 {{ $points[0]['z'] }}" 
+		position="{{ $position['x'] }} 0 {{ $position['z'] }}" 
 		look-at="0 0 0"
 		material="shader: html; target: #post-title-texture-{{ $blog_post['post-title']['#content-id'] }}; transparent: true; ratio: width">
 		@if ($post_counter > 0)
