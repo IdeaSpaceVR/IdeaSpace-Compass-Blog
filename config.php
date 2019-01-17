@@ -122,14 +122,43 @@ return [
       '#label' => 'Blog Posts',
       '#description' => 'Manage your blog posts.',
       '#max-values' => 'infinite',
-      '#field-groups' => ['north-east' => 'North East', 'east' => 'East', 'south-east' => 'South East', 'south' => 'South', 'south-west' => 'South West', 'west' => 'West', 'north-west' => 'North West'],
+      '#field-groups' => [
+					'north-east' => [
+							'title' => 'North East', 
+							'help' => 'Create content for the direction North East.'
+					], 
+					'east' => [
+							'title' => 'East',
+							'help' => 'Create content for the direction East.',
+					], 
+					'south-east' => [
+							'title' => 'South East',
+							'help' => 'Create content for the direction South East.'
+					], 
+					'south' => [
+							'title' => 'South',
+							'help' => 'Create content for the direction South.',
+					], 
+					'south-west' => [
+							'title' => 'South West',
+							'help' => 'Create content for the direction South West.',
+					], 
+					'west' => [
+							'title' => 'West',
+							'help' => 'Create content for the direction West.',
+					], 
+					'north-west' => [
+							'title' => 'North West',
+							'help' => 'Create content for the direction North West.'
+					]
+			],
 //      '#content-type-view' => 'blog-post', // TEST
       '#fields' => [
 
 				'post-title-north' => [
           '#label' => 'Title',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textfield',
           '#maxlength' => 1000,
           '#contentformat' => 'html/text',
@@ -163,12 +192,23 @@ return [
 
 				'post-text-north-east' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'north-east',
+        ],
+
+        'post-image-north-east' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'north-east',
         ],
@@ -184,16 +224,17 @@ return [
           '#field-group' => 'north-east',
         ],
 
-        'post-image-north-east' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-north-east' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'north-east',
         ],
+
 
         'post-display-east' => [
           '#label' => 'Display',
@@ -213,12 +254,23 @@ return [
 
 				'post-text-east' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'east',
+        ],
+
+        'post-image-east' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'east',
         ],
@@ -234,16 +286,17 @@ return [
           '#field-group' => 'east',
         ],
 
-        'post-image-east' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-east' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'east',
         ],
+
 
         'post-display-south-east' => [
           '#label' => 'Display',
@@ -263,12 +316,23 @@ return [
 
 				'post-text-south-east' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'south-east',
+        ],
+
+        'post-image-south-east' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'south-east',
         ],
@@ -284,16 +348,17 @@ return [
           '#field-group' => 'south-east',
         ],
 
-        'post-image-south-east' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-south-east' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'south-east',
         ],
+
 
         'post-display-south' => [
           '#label' => 'Display',
@@ -313,12 +378,23 @@ return [
 
 				'post-text-south' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'south',
+        ],
+
+        'post-image-south' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'south',
         ],
@@ -334,16 +410,17 @@ return [
           '#field-group' => 'south',
         ],
 
-        'post-image-south' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-south' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'south',
         ],
+
 
         'post-display-south-west' => [
           '#label' => 'Display',
@@ -363,12 +440,23 @@ return [
 
 				'post-text-south-west' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'south-west',
+        ],
+
+        'post-image-south-west' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'south-west',
         ],
@@ -384,16 +472,17 @@ return [
           '#field-group' => 'south-west',
         ],
 
-        'post-image-south-west' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-south-west' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'south-west',
         ],
+
 
         'post-display-west' => [
           '#label' => 'Display',
@@ -413,12 +502,23 @@ return [
 
 				'post-text-west' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'west',
+        ],
+
+        'post-image-west' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'west',
         ],
@@ -434,16 +534,17 @@ return [
           '#field-group' => 'west',
         ],
 
-        'post-image-west' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-west' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'west',
         ],
+
 
         'post-display-north-west' => [
           '#label' => 'Display',
@@ -463,12 +564,23 @@ return [
 
 				'post-text-north-west' => [
           '#label' => 'Text',
-          '#description' => 'Write a text.',
-          '#help' => 'Write a text.',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
           '#contentformat' => 'html/text',
+          '#required' => false,
+          '#field-group' => 'north-west',
+        ],
+
+        'post-image-north-west' => [
+          '#label' => 'Image',
+          '#description' => 'Add an image.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
           '#field-group' => 'north-west',
         ],
@@ -484,13 +596,13 @@ return [
           '#field-group' => 'north-west',
         ],
 
-        'post-image-north-west' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
-          '#type' => 'image',
-					'#content-preview-image' => true,
-          '#file-extension' => ['jpg', 'png', 'gif'],
+				'post-link-text-north-west' => [
+          '#label' => 'Link Description Text',
+          '#description' => 'Write some text.',
+          '#help' => 'Write some text.',
+          '#type' => 'textfield',
+          '#contentformat' => 'text',
+          '#maxlength' => 1000,
           '#required' => false,
           '#field-group' => 'north-west',
         ],
