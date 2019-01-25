@@ -51,9 +51,8 @@
 						@php
 						$meters_between_posts = 10;
 
-						function getCirclePoints($number_points) {
+						function getCirclePoints($number_points, $radius) {
 							$p = [];
-							$radius = 3;
 							$center = ['x' => 0, 'z' => 0];
     					$slice = 2 * pi() / $number_points;
     					for ($i = 0; $i < $number_points; $i++) {
@@ -65,7 +64,7 @@
 							return $p;
 						}
 
-						$positions = getCirclePoints(8);
+						$positions = getCirclePoints(8, 3);
 						$post_counter = 0;
 						@endphp
 
