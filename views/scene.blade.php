@@ -7,36 +7,7 @@
 		<a-scene debug isvr-scene light="defaultLightsEnabled: false" @if (isset($content['general-settings'][0]) && $content['general-settings'][0]['antialiasing']['#value'] == 'on') antialias="true" @endif>
 
         <a-assets>
-						@if (isset($content['blog-posts']))
-								@foreach ($content['blog-posts'] as $blog_post)
-										@php
-										$cid = $blog_post['post-title-north']['#content-id'];
-										@endphp
-            				@if ($blog_post['post-display-north-east']['#value'] == 'image' && isset($blog_post['post-image-north-east']['#uri']['#value']))
-                    		<img id="post-image-north-east-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-north-east-texture" src="{{ $blog_post['post-image-north-east']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-            				@if ($blog_post['post-display-east']['#value'] == 'image' && isset($blog_post['post-image-east']['#uri']['#value']))
-                    		<img id="post-image-east-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-east-texture" src="{{ $blog_post['post-image-east']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-            				@if ($blog_post['post-display-south-east']['#value'] == 'image' && isset($blog_post['post-image-south-east']['#uri']['#value']))
-                    		<img id="post-image-south-east-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-south-east-texture" src="{{ $blog_post['post-image-south-east']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-            				@if ($blog_post['post-display-south']['#value'] == 'image' && isset($blog_post['post-image-south']['#uri']['#value']))
-                    		<img id="post-image-south-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-south-texture" src="{{ $blog_post['post-image-south']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-            				@if ($blog_post['post-display-south-west']['#value'] == 'image' && isset($blog_post['post-image-south-west']['#uri']['#value']))
-                    		<img id="post-image-south-west-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-south-west-texture" src="{{ $blog_post['post-image-south-west']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-            				@if ($blog_post['post-display-west']['#value'] == 'image' && isset($blog_post['post-image-west']['#uri']['#value']))
-                    		<img id="post-image-west-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-west-texture" src="{{ $blog_post['post-image-west']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-            				@if ($blog_post['post-display-north-west']['#value'] == 'image' && isset($blog_post['post-image-north-west']['#uri']['#value']))
-                    		<img id="post-image-north-west-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-image-north-west-texture" src="{{ $blog_post['post-image-north-west']['#uri']['#value'] }}" crossorigin>
-                 		@endif
-								@endforeach
-						@endif
             <audio id="audio-click" src="{{ url($theme_dir . '/assets/audio/ui_click0.ogg') }}" response-type="arraybuffer" crossorigin></audio>
-
 				</a-assets>
 
 
@@ -236,130 +207,32 @@
 								<p><span style="font-family: arial, helvetica, sans-serif; font-size: 20pt; color: #ffffff;">@php /*$date_formatted*/ @endphp</span></p>
 						</div>
 
-						@include('theme::partials.text_link_texture', ['id' => 'north-east', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'west', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'east', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'south-east', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'south', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'south-west', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'west', 'cid' => $cid])
-
-						@include('theme::partials.text_link_texture', ['id' => 'north-west', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'north-east', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'east', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'south-east', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'south', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'south-west', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'west', 'cid' => $cid])
+						@include('theme::partials.text_image_link_texture', ['id' => 'north-west', 'cid' => $cid])
 
         @endforeach
-    @endif
 
     <script>
     (function() {
         /* DOM is loaded */
-				var post_text_north_east_textures = document.querySelectorAll('.post-text-north-east-texture');
-				for (var i = 0; i < post_text_north_east_textures.length; i++) {
-						var post_text_wrapper_north_east = document.getElementById('post-text-wrapper-north-east-' + post_text_north_east_textures[i].dataset.cid);
-						var height_meters = (post_text_north_east_textures[i].offsetHeight * post_text_wrapper_north_east.getAttribute('width')) / post_text_north_east_textures[i].offsetWidth;
-						post_text_wrapper_north_east.setAttribute('height', height_meters);
-				}
+				ready(function() {
 
-				var post_text_east_textures = document.querySelectorAll('.post-text-east-texture');
-				for (var i = 0; i < post_text_east_textures.length; i++) {
-						var post_text_wrapper_east = document.getElementById('post-text-wrapper-east-' + post_text_east_textures[i].dataset.cid);
-						var height_meters = (post_text_east_textures[i].offsetHeight * post_text_wrapper_east.getAttribute('width')) / post_text_east_textures[i].offsetWidth;
-						post_text_wrapper_east.setAttribute('height', height_meters);
-				}
-
-				var post_text_south_east_textures = document.querySelectorAll('.post-text-south-east-texture');
-				for (var i = 0; i < post_text_south_east_textures.length; i++) {
-						var post_text_wrapper_south_east = document.getElementById('post-text-wrapper-south-east-' + post_text_south_east_textures[i].dataset.cid);
-						var height_meters = (post_text_south_east_textures[i].offsetHeight * post_text_wrapper_south_east.getAttribute('width')) / post_text_south_east_textures[i].offsetWidth;
-						post_text_wrapper_south_east.setAttribute('height', height_meters);
-				}
-
-				var post_text_south_textures = document.querySelectorAll('.post-text-south-texture');
-				for (var i = 0; i < post_text_south_textures.length; i++) {
-						var post_text_wrapper_south = document.getElementById('post-text-wrapper-south-' + post_text_south_textures[i].dataset.cid);
-						var height_meters = (post_text_south_textures[i].offsetHeight * post_text_wrapper_south.getAttribute('width')) / post_text_south_textures[i].offsetWidth;
-						post_text_wrapper_south.setAttribute('height', height_meters);
-				}
-
-				var post_text_south_west_textures = document.querySelectorAll('.post-text-south-west-texture');
-				for (var i = 0; i < post_text_south_west_textures.length; i++) {
-						var post_text_wrapper_south_west = document.getElementById('post-text-wrapper-south-west-' + post_text_south_west_textures[i].dataset.cid);
-						var height_meters = (post_text_south_west_textures[i].offsetHeight * post_text_wrapper_south_west.getAttribute('width')) / post_text_south_west_textures[i].offsetWidth;
-						post_text_wrapper_south_west.setAttribute('height', height_meters);
-				}
-
-				var post_text_west_textures = document.querySelectorAll('.post-text-west-texture');
-				for (var i = 0; i < post_text_west_textures.length; i++) {
-						var post_text_wrapper_west = document.getElementById('post-text-wrapper-west-' + post_text_west_textures[i].dataset.cid);
-						var height_meters = (post_text_west_textures[i].offsetHeight * post_text_wrapper_west.getAttribute('width')) / post_text_west_textures[i].offsetWidth;
-						post_text_wrapper_west.setAttribute('height', height_meters);
-				}
-
-				var post_text_north_west_textures = document.querySelectorAll('.post-text-north-west-texture');
-				for (var i = 0; i < post_text_north_west_textures.length; i++) {
-						var post_text_wrapper_north_west = document.getElementById('post-text-wrapper-north-west-' + post_text_north_west_textures[i].dataset.cid);
-						var height_meters = (post_text_north_west_textures[i].offsetHeight * post_text_wrapper_north_west.getAttribute('width')) / post_text_north_west_textures[i].offsetWidth;
-						post_text_wrapper_north_west.setAttribute('height', height_meters);
-				}
-
-// TODO after image is loaded, execute func
-setTimeout(function() {
-				var post_image_north_east_textures = document.querySelectorAll('.post-image-north-east-texture');
-				for (var i = 0; i < post_image_north_east_textures.length; i++) {
-						var post_image_wrapper_north_east = document.getElementById('post-image-wrapper-north-east-' + post_image_north_east_textures[i].dataset.cid);
-						var height_meters = (post_image_north_east_textures[i].height * post_image_wrapper_north_east.getAttribute('width')) / post_image_north_east_textures[i].width;
-						post_image_wrapper_north_east.setAttribute('height', (height_meters + 0.08));
-				}
-
-				var post_image_east_textures = document.querySelectorAll('.post-image-east-texture');
-				for (var i = 0; i < post_image_east_textures.length; i++) {
-						var post_image_wrapper_east = document.getElementById('post-image-wrapper-east-' + post_image_east_textures[i].dataset.cid);
-						var height_meters = (post_image_east_textures[i].height * post_image_wrapper_east.getAttribute('width')) / post_image_east_textures[i].width;
-						post_image_wrapper_east.setAttribute('height', (height_meters + 0.08));
-				}
-
-				var post_image_south_east_textures = document.querySelectorAll('.post-image-south-east-texture');
-				for (var i = 0; i < post_image_south_east_textures.length; i++) {
-						var post_image_wrapper_south_east = document.getElementById('post-image-wrapper-south-east-' + post_image_south_east_textures[i].dataset.cid);
-						var height_meters = (post_image_south_east_textures[i].height * post_image_wrapper_south_east.getAttribute('width')) / post_image_south_east_textures[i].width;
-						post_image_wrapper_south_east.setAttribute('height', (height_meters + 0.08));
-				}
-
-				var post_image_south_textures = document.querySelectorAll('.post-image-south-texture');
-				for (var i = 0; i < post_image_south_textures.length; i++) {
-						var post_image_wrapper_south = document.getElementById('post-image-wrapper-south-' + post_image_south_textures[i].dataset.cid);
-						var height_meters = (post_image_south_textures[i].height * post_image_wrapper_south.getAttribute('width')) / post_image_south_textures[i].width;
-						post_image_wrapper_south.setAttribute('height', (height_meters + 0.08));
-				}
-
-				var post_image_south_west_textures = document.querySelectorAll('.post-image-south-west-texture');
-				for (var i = 0; i < post_image_south_west_textures.length; i++) {
-						var post_image_wrapper_south_west = document.getElementById('post-image-wrapper-south-west-' + post_image_south_west_textures[i].dataset.cid);
-						var height_meters = (post_image_south_west_textures[i].height * post_image_wrapper_south_west.getAttribute('width')) / post_image_south_west_textures[i].width;
-						post_image_wrapper_south_west.setAttribute('height', (height_meters + 0.08));
-				}
-
-				var post_image_west_textures = document.querySelectorAll('.post-image-west-texture');
-				for (var i = 0; i < post_image_west_textures.length; i++) {
-						var post_image_wrapper_west = document.getElementById('post-image-wrapper-west-' + post_image_west_textures[i].dataset.cid);
-						var height_meters = (post_image_west_textures[i].height * post_image_wrapper_west.getAttribute('width')) / post_image_west_textures[i].width;
-						post_image_wrapper_west.setAttribute('height', (height_meters + 0.08));
-				}
-
-				var post_image_north_west_textures = document.querySelectorAll('.post-image-north-west-texture');
-				for (var i = 0; i < post_image_north_west_textures.length; i++) {
-						var post_image_wrapper_north_west = document.getElementById('post-image-wrapper-north-west-' + post_image_north_west_textures[i].dataset.cid);
-						var height_meters = (post_image_north_west_textures[i].height * post_image_wrapper_north_west.getAttribute('width')) / post_image_north_west_textures[i].width;
-						post_image_wrapper_north_west.setAttribute('height', (height_meters + 0.08));
-				}
-
-}, 3000);
+						@include('theme::partials.text_image_border_script', ['id' => 'north-east'])
+						@include('theme::partials.text_image_border_script', ['id' => 'east'])
+						@include('theme::partials.text_image_border_script', ['id' => 'south-east'])
+						@include('theme::partials.text_image_border_script', ['id' => 'south'])
+						@include('theme::partials.text_image_border_script', ['id' => 'south-west'])
+						@include('theme::partials.text_image_border_script', ['id' => 'west'])
+						@include('theme::partials.text_image_border_script', ['id' => 'north-west'])
+				});
     })();
     </script>
+
+    @endif
 
 @endsection
