@@ -43,7 +43,7 @@
 								position="0 0 0" 
 								id="posts-wrapper" 
 								@foreach ($content['blog-posts'] as $blog_post)
-										animation__nav_up_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1; easing: linear; to: 0 -{{ (($post_counter * $meters_between_posts) - 10) }} 0; startEvents: nav_up_{{ $blog_post['post-title-north']['#content-id'] }}"
+										animation__nav_up_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1; easing: linear; to: 0 {{ ((($post_counter - 1) * $meters_between_posts)) }} 0; startEvents: nav_up_{{ $blog_post['post-title-north']['#content-id'] }}"
 										animation__nav_down_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1; easing: linear; to: 0 {{ (($post_counter * $meters_between_posts) + 10) }} 0; startEvents: nav_down_{{ $blog_post['post-title-north']['#content-id'] }}"
 										@php
 										$post_counter++;
