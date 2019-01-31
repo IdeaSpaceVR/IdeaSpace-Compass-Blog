@@ -19,7 +19,6 @@ var posts {
 
         var self = this;
 
-// http://dev2.ideaspacevr.org/testsdsda/preview/content/blog-posts?per-page=3&page=2
 
         if (this.xmlhttp.readyState == 4 && this.xmlhttp.status == 200) {
 
