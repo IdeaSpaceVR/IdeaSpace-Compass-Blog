@@ -1,11 +1,11 @@
 var posts = {
 
-		load: function (u, m, c) {
+		load: function (url, meters, counter, positions) {
 
-				this.url = u;
-				this.meters_between_posts = m;
-				this.post_counter = c;
-
+				this.url = url;
+				this.meters_between_posts = meters;
+				this.post_counter = counter;
+				this.positions = positions;
 
 				this.xmlhttp = new XMLHttpRequest();
 				this.xmlhttp.onreadystatechange = this.responseHandler.bind(this);
@@ -28,8 +28,10 @@ var posts = {
 
 								var cid = obj['blog-posts'][i]['post-title-north']['#content-id'];
 								var textures = document.querySelector('#textures');
+								var post = document.querySelector('#post-' + cid);
 
-								/* post title texture */
+
+								/* post title texture and entity */
 								var title_texture = document.createElement('div');
 								title_texture.id = 'post-title-texture-' + cid;
 								title_texture.dataset.cid = cid;
@@ -37,13 +39,24 @@ var posts = {
 								title_texture.innerHTML = obj['blog-posts'][i]['post-title-north']['#value'];
 								textures.appendChild(title_texture);
 
-								this.createBlogPostTexture('north-east', cid, textures);
-								this.createBlogPostTexture('east', cid, textures);
-								this.createBlogPostTexture('south-east', cid, textures);
-								this.createBlogPostTexture('south', cid, textures);
-								this.createBlogPostTexture('south-west', cid, textures);
-								this.createBlogPostTexture('west', cid, textures);
-								this.createBlogPostTexture('north-west', cid, textures);
+								var title = document.createElement('a-entity');			
+								title.id = 'post-title-' + cid;
+								title.dataset.cid = cid;
+								title.setAttribute('geometry', { primitive: 'plane', width: 2 });
+								title.setAttribute('position', { x: this.positions[0]['x'], y: 0, z: this.positions[0]['z'] });
+								title.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+								title.setAttribute('material', { shader: 'html', target: '#post-title-texture-' + cid, transparent: true, ratio: 'width' });
+								post.appendChild(title);
+
+
+								/* blog post textures and entities */
+								this.createBlogPostContent('north-east', cid, textures);
+								this.createBlogPostContent('east', cid, textures);
+								this.createBlogPostContent('south-east', cid, textures);
+								this.createBlogPostContent('south', cid, textures);
+								this.createBlogPostContent('south-west', cid, textures);
+								this.createBlogPostContent('west', cid, textures);
+								this.createBlogPostContent('north-west', cid, textures);
 
 
 
@@ -83,7 +96,7 @@ var posts = {
     }, /* responseHandler */
 
 
-		createBlogPostTexture: function (id, cid, textureParent) {
+		createBlogPostContent: function (id, cid, textureParent) {
 
 				if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'text') {
 
@@ -94,6 +107,8 @@ var posts = {
 						texture.style.backgroundColor = obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value'];
 						texture.innerHTML = obj['blog-posts'][i]['post-text-' + id]['#value'];
 						textures.appendChild(texture);
+
+
 
 				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'link') {
 
