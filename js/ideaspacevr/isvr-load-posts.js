@@ -118,10 +118,8 @@ var posts = {
 						text.setAttribute('position', { x: 0, y: 0, z: 0.001 });
 						text.setAttribute('material', { shader: 'html', target: '#post-text-' + id + '-texture-' + cid, transparent: true, ratio: 'width' });
 
-// TODO
-var post_text_wrapper_{{ $_id }} = document.getElementById('post-text-wrapper-{{ $id }}-' + post_text_{{ $_id }}_textures[i].dataset.cid);
-    var height_meters = (post_text_{{ $_id }}_textures[i].offsetHeight * post_text_wrapper_{{ $_id }}.getAttribute('width')) / post_text_{{ $_id }}_textures[i].offsetWidth;
-    post_text_wrapper_{{ $_id }}.setAttribute('height', height_meters);
+						var height_meters = (texture.offsetHeight * wrapper.getAttribute('width')) / texture.offsetWidth;
+						wrapper.setAttribute('height', height_meters);
 				
 						wrapper.appendChild(text);
 						post.appendChild(wrapper);
@@ -152,6 +150,49 @@ var post_text_wrapper_{{ $_id }} = document.getElementById('post-text-wrapper-{{
 								texture.innerHTML = obj['blog-posts'][i]['post-link-' + id]['#value'];
 						}
 						textures.appendChild(texture);
+
+						var wrapper_active = document.createElement('a-rounded');
+						wrapper_active.id = 'post-link-wrapper2-' + id + '-' + cid;
+						if (position['x'] == -3) {
+								wrapper_active.setAttribute('position', { x: (position['x'] - 0.001), y: 0, z: position['z'] });
+						} else {
+								wrapper_active.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
+						}
+						wrapper_active.setAttribute('color', '#0080e5');
+						wrapper_active.setAttribute('visible', false);
+						wrapper_active.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper_active.setAttribute('width', 2);
+						wrapper_active.setAttribute('height', 0.5);
+						wrapper_active.setAttribute('top-left-radius', 0.06);
+						wrapper_active.setAttribute('top-right-radius', 0.06);
+						wrapper_active.setAttribute('bottom-left-radius', 0.06);
+						wrapper_active.setAttribute('bottom-right-radius', 0.06);
+
+						var wrapper = document.createElement('a-rounded');
+						wrapper.id = 'post-link-wrapper-' + id + '-' + cid;
+						wrapper.setAttribute('isvr-link-hover', { id: 'id: post-link-wrapper2-' + id + '-' + cid });
+						if (position['z'] < 0) {
+								wrapper.setAttribute('position', { x: position['x'], y: 0, z: (position['z'] + 0.001) });
+						} else {
+								wrapper.setAttribute('position', { x: position['x'], y: 0, z: (position['z'] - 0.001) });
+						}
+						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
+						wrapper.setAttribute('width', 1.95);
+						wrapper.setAttribute('height', 0.45);
+						wrapper.setAttribute('top-left-radius', 0.06);
+						wrapper.setAttribute('top-right-radius', 0.06);
+						wrapper.setAttribute('bottom-left-radius', 0.06);
+						wrapper.setAttribute('bottom-right-radius', 0.06);
+
+						var link = document.createElement('a-entity');
+						link.id = 'post-text-' + id + '-' + cid;
+						link.setAttribute('position', { x: 0, y: 0, z: 0.001 });
+						link.setAttribute('material', { shader: 'html', target: '#post-link-' + id + '-texture-' + cid, transparent: true, ratio: 'width' });
+						if (obj['blog-posts'][i]['post-link-' + id]['#value'].trim() != '') {
+								link.setAttribute('link', { href: obj['blog-posts'][i]['post-link-' + id]['#value'], visualAspectEnabled: false });	
+						}
+						link.setAttribute('geometry', { primitive: 'plane', width: 1.8 });
 
 				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'image') {
 
