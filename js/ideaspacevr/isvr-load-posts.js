@@ -1,10 +1,11 @@
 var posts = {
 
-		load: function (url, meters, counter, positions) {
+		load: function (url, meters, counter, total_posts, positions) {
 
 				this.url = url;
 				this.meters_between_posts = meters;
 				this.post_counter = counter;
+				this.total_posts = total_posts;
 				this.positions = positions;
 
 				this.xmlhttp = new XMLHttpRequest();
@@ -28,45 +29,35 @@ var posts = {
 
 								var cid = obj['blog-posts'][i]['post-title-north']['#content-id'];
 								var textures = document.querySelector('#textures');
-								var post = document.querySelector('#post-' + cid);
-
-
-								/* post title texture and entity */
-								var title_texture = document.createElement('div');
-								title_texture.id = 'post-title-texture-' + cid;
-								title_texture.dataset.cid = cid;
-								title_texture.className = 'post-title-texture';
-								title_texture.innerHTML = obj['blog-posts'][i]['post-title-north']['#value'];
-								textures.appendChild(title_texture);
-
-								var title = document.createElement('a-entity');			
-								title.id = 'post-title-' + cid;
-								title.dataset.cid = cid;
-								title.setAttribute('geometry', { primitive: 'plane', width: 2 });
-								title.setAttribute('position', { x: this.positions[0]['x'], y: 0, z: this.positions[0]['z'] });
-								title.setAttribute('look-at', { x: 0, y: 0, z: 0 });
-								title.setAttribute('material', { shader: 'html', target: '#post-title-texture-' + cid, transparent: true, ratio: 'width' });
-								post.appendChild(title);
-
-
-								/* blog post textures and entities */
-								this.createBlogPostContent('north-east', cid, textures);
-								this.createBlogPostContent('east', cid, textures);
-								this.createBlogPostContent('south-east', cid, textures);
-								this.createBlogPostContent('south', cid, textures);
-								this.createBlogPostContent('south-west', cid, textures);
-								this.createBlogPostContent('west', cid, textures);
-								this.createBlogPostContent('north-west', cid, textures);
-
-
-
-								/* animation nav */
 								var posts_wrapper = document.querySelector('#posts-wrapper');
+
+
+								/* posts wrapper animation nav */
 								posts_wrapper.setAttribute('animation__nav_up_' + cid, { property: 'position', dur: 1, easing: 'linear', to: '0 ' + ((this.post_counter - 1) * this.meters_between_posts) + ' 0', startEvents: 'nav_up_' + cid });
 								posts_wrapper.setAttribute('animation__nav_down_' + cid, { property: 'position', dur: 1, easing: 'linear', to: '0 ' + ((this.post_counter * this.meters_between_posts) + 10) + ' 0', startEvents: 'nav_down_' + cid });
-		
 
-								/* post title */
+
+								var post = document.createElement('a-entity');
+								post.setAttribute('position', { x: 0, y: -(this.post_counter * this.meters_between_posts), z: 0 }); 
+								post.id = 'post-' + cid;
+								post.className = 'post post-' + this.post_counter + ' collidable';
+								posts_wrapper.appendChild(post);
+
+								
+								/* blog post title textures and entities */	
+								this.createBlogPostTitleContent(cid, this.positions, textures, post, obj, i, this.post_counter, this.total_posts);								
+
+
+// TODO add entities to createBlogPostContent	
+
+								/* blog post textures and entities */
+								this.createBlogPostContent('north-east', cid, textures, obj, i);
+								this.createBlogPostContent('east', cid, textures, obj, i);
+								this.createBlogPostContent('south-east', cid, textures, obj, i);
+								this.createBlogPostContent('south', cid, textures, obj, i);
+								this.createBlogPostContent('south-west', cid, textures, obj, i);
+								this.createBlogPostContent('west', cid, textures, obj, i);
+								this.createBlogPostContent('north-west', cid, textures, obj, i);
 
 
 
@@ -89,6 +80,9 @@ var posts = {
                 }(obj['photo-spheres'][i]['photo-sphere']['#content-id'], i, obj['photo-spheres'].length));
                 photosphere_image.src = obj['photo-spheres'][i]['photo-sphere']['#uri']['#value'];*/
 
+
+								this.post_counter++;
+
             } /* for */
 
         } /* if */
@@ -96,7 +90,7 @@ var posts = {
     }, /* responseHandler */
 
 
-		createBlogPostContent: function (id, cid, textureParent) {
+		createBlogPostContent: function (id, cid, textureParent, obj, i) {
 
 				if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'text') {
 
@@ -148,7 +142,75 @@ var posts = {
 						textures.appendChild(texture);
 				}
 
-		}
+		}, /* createBlogPostContent */
+
+
+		createBlogPostTitleContent: function (cid, positions, textures, post, obj, i, post_counter, total_posts) {
+
+				var title_texture = document.createElement('div');
+				title_texture.id = 'post-title-texture-' + cid;
+				title_texture.dataset.cid = cid;
+				title_texture.className = 'post-title-texture';
+				title_texture.innerHTML = obj['blog-posts'][i]['post-title-north']['#value']; 
+				textures.appendChild(title_texture);
+
+				var title = document.createElement('a-entity');			
+				title.id = 'post-title-' + cid;
+				title.dataset.cid = cid;
+				title.setAttribute('geometry', { primitive: 'plane', width: 2 });
+				title.setAttribute('position', { x: this.positions[0]['x'], y: 0, z: this.positions[0]['z'] });
+				title.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+				title.setAttribute('material', { shader: 'html', target: '#post-title-texture-' + cid, transparent: true, ratio: 'width' });
+
+				if (post_counter > 0) {
+						var nav_up = document.createElement('a-entity');			
+						nav_up.id = 'navigation-arrow-up-' + cid;
+						nav_up.className = 'navigation-arrow-up collidable';
+						nav_up.setAttribute('isvr-navigation-up', { cid: cid });
+						nav_up.setAttribute('isvr-blog-post-nav-up', { id: 'navigation-arrow-up-' + cid });
+						nav_up.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_up.setAttribute('position', { x: -1.15, y: 0, z: -0.001 });
+						nav_up.setAttribute('material', { shader: 'html', target: '#navigation-arrow-up-texture', transparent: true, ratio: 'width' });
+
+						title.appendChild(nav_up);
+				} else {
+						var nav_up = document.createElement('a-entity');			
+						nav_up.id = 'navigation-arrow-up-' + cid;
+						nav_up.className = 'navigation-arrow-up';
+						nav_up.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_up.setAttribute('position', { x: -1.15, y: 0, z: -0.001 });
+						nav_up.setAttribute('material', { shader: 'html', target: '#navigation-arrow-up-inactive-texture', transparent: true, ratio: 'width' });
+
+						title.appendChild(nav_up);
+				}
+
+				if ((total_posts - 1) > post_counter) {
+						var nav_down = document.createElement('a-entity');			
+						nav_down.id = 'navigation-arrow-down-' + cid;
+						nav_down.className = 'navigation-arrow-down collidable';
+						nav_down.setAttribute('isvr-navigation-down', { cid: cid });
+						nav_down.setAttribute('isvr-blog-post-nav-down', { id: 'navigation-arrow-down-' + cid });
+						nav_down.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_down.setAttribute('position', { x: 1.15, y: 0, z: -0.001 });
+						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-texture', transparent: true, ratio: 'width' });
+
+						title.appendChild(nav_down);
+				} else {
+						var nav_down = document.createElement('a-entity');			
+						nav_down.id = 'navigation-arrow-down-' + cid;
+						nav_down.className = 'navigation-arrow-down';
+						nav_down.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_down.setAttribute('position', { x: 1.15, y: 0, z: -0.001 });
+						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-inactive-texture', transparent: true, ratio: 'width' });
+
+						title.appendChild(nav_down);
+				}
+				
+				post.appendChild(title);
+
+		} /* createBlogPostTitleContent */
+
+
 
 
 };
