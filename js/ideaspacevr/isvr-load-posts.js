@@ -43,21 +43,19 @@ var posts = {
 								post.className = 'post post-' + this.post_counter + ' collidable';
 								posts_wrapper.appendChild(post);
 
-								
+
 								/* blog post title textures and entities */	
 								this.createBlogPostTitleContent(cid, this.positions, textures, post, obj, i, this.post_counter, this.total_posts);								
 
 
-// TODO add entities to createBlogPostContent	
-
 								/* blog post textures and entities */
-								this.createBlogPostContent('north-east', cid, textures, obj, i);
-								this.createBlogPostContent('east', cid, textures, obj, i);
-								this.createBlogPostContent('south-east', cid, textures, obj, i);
-								this.createBlogPostContent('south', cid, textures, obj, i);
-								this.createBlogPostContent('south-west', cid, textures, obj, i);
-								this.createBlogPostContent('west', cid, textures, obj, i);
-								this.createBlogPostContent('north-west', cid, textures, obj, i);
+								this.createBlogPostContent('north-east', cid, this.positions[1], textures, post, obj, i);
+								this.createBlogPostContent('east', cid, this.positions[2], textures, post, obj, i);
+								this.createBlogPostContent('south-east', cid, this.positions[3], textures, post, obj, i);
+								this.createBlogPostContent('south', cid, this.positions[4], textures, post, obj, i);
+								this.createBlogPostContent('south-west', this.positions[5], cid, textures, post, obj, i);
+								this.createBlogPostContent('west', cid, this.positions[6], textures, post, obj, i);
+								this.createBlogPostContent('north-west', cid, this.positions[7], textures, post, obj, i);
 
 
 
@@ -90,7 +88,7 @@ var posts = {
     }, /* responseHandler */
 
 
-		createBlogPostContent: function (id, cid, textureParent, obj, i) {
+		createBlogPostContent: function (id, cid, position, textureParent, post, obj, i) {
 
 				if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'text') {
 
@@ -102,7 +100,31 @@ var posts = {
 						texture.innerHTML = obj['blog-posts'][i]['post-text-' + id]['#value'];
 						textures.appendChild(texture);
 
+						var wrapper = document.createElement('a-rounded');
+						wrapper.id = 'post-text-wrapper-' + id + '-' + cid;
+						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
+						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
+						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper.setAttribute('width', 2);
+						wrapper.setAttribute('height', 3);
+						wrapper.setAttribute('top-left-radius', 0.06);
+						wrapper.setAttribute('top-right-radius', 0.06);
+						wrapper.setAttribute('bottom-left-radius', 0.06);
+						wrapper.setAttribute('bottom-right-radius', 0.06);
 
+						var text = document.createElement('a-entity');
+						text.id = 'post-text-' + id + '-' + cid;
+						text.setAttribute('geometry', { primitive: 'plane', width: 1.8 });
+						text.setAttribute('position', { x: 0, y: 0, z: 0.001 });
+						text.setAttribute('material', { shader: 'html', target: '#post-text-' + id + '-texture-' + cid, transparent: true, ratio: 'width' });
+
+// TODO
+var post_text_wrapper_{{ $_id }} = document.getElementById('post-text-wrapper-{{ $id }}-' + post_text_{{ $_id }}_textures[i].dataset.cid);
+    var height_meters = (post_text_{{ $_id }}_textures[i].offsetHeight * post_text_wrapper_{{ $_id }}.getAttribute('width')) / post_text_{{ $_id }}_textures[i].offsetWidth;
+    post_text_wrapper_{{ $_id }}.setAttribute('height', height_meters);
+				
+						wrapper.appendChild(text);
+						post.appendChild(wrapper);
 
 				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'link') {
 
@@ -154,6 +176,10 @@ var posts = {
 				title_texture.innerHTML = obj['blog-posts'][i]['post-title-north']['#value']; 
 				textures.appendChild(title_texture);
 
+				if (title_texture.getElementsByTagName('span')[0].style.color == 'rgb(0, 0, 0)' || title_texture.getElementsByTagName('span')[0].style.color == '') {
+        		title_texture.getElementsByTagName('span')[0].style.color = 'rgb(255, 255, 255)';
+				}
+
 				var title = document.createElement('a-entity');			
 				title.id = 'post-title-' + cid;
 				title.dataset.cid = cid;
@@ -195,6 +221,7 @@ var posts = {
 						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-texture', transparent: true, ratio: 'width' });
 
 						title.appendChild(nav_down);
+
 				} else {
 						var nav_down = document.createElement('a-entity');			
 						nav_down.id = 'navigation-arrow-down-' + cid;
