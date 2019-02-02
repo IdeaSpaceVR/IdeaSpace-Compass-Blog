@@ -194,7 +194,7 @@ var posts = {
 						}
 						link.setAttribute('geometry', { primitive: 'plane', width: 1.8 });
 
-				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'image') {
+				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'image' && '#value' in obj['blog-posts'][i]['post-image-' + id]['#uri']) {
 
 						var texture = document.createElement('img');
 						texture.id = 'post-image-' + id + '-texture-' + cid;
@@ -203,6 +203,60 @@ var posts = {
 						texture.src = obj['blog-posts'][i]['post-image-' + id]['#uri']['#value'];
 						texture.crossOrigin = 'anonymous';
 						textures.appendChild(texture);
+
+						var wrapper = document.createElement('a-rounded');
+						wrapper.id = 'post-image-wrapper-' + id + '-' + cid;
+						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
+						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
+						wrapper.setAttribute('width', 2);
+						wrapper.setAttribute('height', 3);
+						wrapper.setAttribute('top-left-radius', 0.06);
+						wrapper.setAttribute('top-right-radius', 0.06);
+						wrapper.setAttribute('bottom-left-radius', 0.06);
+						wrapper.setAttribute('bottom-right-radius', 0.06);
+
+						if (obj['blog-posts'][i]['post-image-' + id]['#mime-type'] == 'image/gif') {
+								var image = document.createElement('a-image');
+								image.id = 'post-image-' + id + '-' + cid;
+								image.setAttribute('position', { x: 0, y: 0, z: 0.001 });
+								image.setAttribute('shader', 'gif');
+								image.setAttribute('src', '#post-image-' + id + '-texture-' + cid);
+								if (obj['blog-posts'][i]['post-image-' + id]['#width'] > obj['blog-posts'][i]['post-image-' + id]['#height']) {
+										image.setAttribute('width', 1.8);
+										image.setAttribute('height', 0.9);
+								} else if (obj['blog-posts'][i]['post-image-' + id]['#width'] < obj['blog-posts'][i]['post-image-' + id]['#height']) {
+										image.setAttribute('width', 1.8);
+										image.setAttribute('height', 3.6);
+								} else {
+										image.setAttribute('width', 1.8);
+										image.setAttribute('height', 1.8);
+								}
+						} else {
+								var image = document.createElement('a-image');
+								image.id = 'post-image-' + id + '-' + cid;
+								image.setAttribute('position', { x: 0, y: 0, z: 0.001 });
+								image.setAttribute('src', '#post-image-' + id + '-texture-' + cid);
+								if (obj['blog-posts'][i]['post-image-' + id]['#width'] > obj['blog-posts'][i]['post-image-' + id]['#height']) {
+										image.setAttribute('width', 1.8);
+										image.setAttribute('height', 0.9);
+								} else if (obj['blog-posts'][i]['post-image-' + id]['#width'] < obj['blog-posts'][i]['post-image-' + id]['#height']) {
+										image.setAttribute('width', 1.8);
+										image.setAttribute('height', 3.6);
+								} else {
+										image.setAttribute('width', 1.8);
+										image.setAttribute('height', 1.8);
+								}
+						}
+
+						var height_meters = (texture.height * wrapper.getAttribute('width')) / texture.width;
+			console.log(texture.height);	
+			console.log(wrapper.getAttribute('width'));	
+			console.log(texture.width);	
+						wrapper.setAttribute('height', (height_meters + 0.08));
+
+						wrapper.appendChild(image);
+						post.appendChild(wrapper);
 				}
 
 		}, /* createBlogPostContent */
