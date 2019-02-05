@@ -182,7 +182,7 @@ var posts = {
 						var imageTexture = new Image();
 						imageTexture.onload = (function(cid, id, textures, position) {
 								return function() {
-										/* image is loaded */
+										/* Image() is loaded but we need an img tag as well */
 										var texture = document.createElement('img');
 										texture.id = 'post-image-' + id + '-texture-' + cid;
 										texture.dataset.cid = cid;
@@ -197,8 +197,8 @@ var posts = {
 										wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
 										wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 										wrapper.setAttribute('width', 2);
-										wrapper.setAttribute('height', ((texture.height * wrapper.getAttribute('width')) / texture.width) + 0.08);
-console.log((((texture.height * wrapper.getAttribute('width')) / texture.width) + 0.08) +' '+id);
+										/* use imageTexture because it is loaded and width and height is set */
+										wrapper.setAttribute('height', ((imageTexture.height * wrapper.getAttribute('width')) / imageTexture.width) + 0.08);
 										wrapper.setAttribute('top-left-radius', 0.06);
 										wrapper.setAttribute('top-right-radius', 0.06);
 										wrapper.setAttribute('bottom-left-radius', 0.06);
@@ -226,15 +226,12 @@ console.log((((texture.height * wrapper.getAttribute('width')) / texture.width) 
 												image.setAttribute('position', { x: 0, y: 0, z: 0.001 });
 												image.setAttribute('src', '#post-image-' + id + '-texture-' + cid);
 												if (obj['blog-posts'][i]['post-image-' + id]['#width'] > obj['blog-posts'][i]['post-image-' + id]['#height']) {
-console.log('1 '+id);
 														image.setAttribute('width', 1.8);
 														image.setAttribute('height', 0.9);
 												} else if (obj['blog-posts'][i]['post-image-' + id]['#width'] < obj['blog-posts'][i]['post-image-' + id]['#height']) {
-console.log('2');
 														image.setAttribute('width', 1.8);
 														image.setAttribute('height', 3.6);
 												} else {
-console.log('3 '+id);
 														image.setAttribute('width', 1.8);
 														image.setAttribute('height', 1.8);
 												}
