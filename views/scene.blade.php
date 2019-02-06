@@ -241,7 +241,7 @@
         /* DOM is loaded */
 				ready(function() {
         		/* DOM content is loaded */
-						@include('theme::partials.title_script')
+						@include('theme::partials.texture_rerender_script')
 
 						@include('theme::partials.text_image_border_script', ['id' => 'north-east'])
 						@include('theme::partials.text_image_border_script', ['id' => 'east'])

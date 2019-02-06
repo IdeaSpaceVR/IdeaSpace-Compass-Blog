@@ -15,6 +15,7 @@ var posts = {
 
 		}, /* load */
 
+// http://dev2.ideaspacevr.org/testsdsda/preview/content/blog-posts?per-page=3&page=2
 
 		responseHandler: function () {
 
@@ -66,6 +67,29 @@ var posts = {
 
             } /* for */
 
+
+						document.fonts.onloadingdone = function(fontFaceSetEvent) {
+
+								var nav_arrow_up_all = document.querySelectorAll('.navigation-arrow-up');
+								for (var i = 0; i < nav_arrow_up_all.length; i++) {
+										/* workaround to refresh texture, otherwise it is not appearing on first loading of page */
+										nav_arrow_up_all[i].components.material.shader.__render();
+								}
+
+								var nav_arrow_down_all = document.querySelectorAll('.navigation-arrow-down');
+								for (var i = 0; i < nav_arrow_down_all.length; i++) {
+										/* workaround to refresh texture, otherwise it is not appearing on first loading of page */
+										nav_arrow_down_all[i].components.material.shader.__render();
+								}
+
+								var post_text_all = document.querySelectorAll('.post-text');
+								for (var i = 0; i < post_text_all.length; i++) {
+										/* workaround to refresh texture, otherwise some fonts might not appear */
+										post_text_all[i].components.material.shader.__render();
+								}
+						}
+
+
         } /* if */
 
     }, /* responseHandler */
@@ -97,6 +121,7 @@ var posts = {
 
 						var text = document.createElement('a-entity');
 						text.id = 'post-text-' + id + '-' + cid;
+						text.className = 'post-text';
 						text.setAttribute('geometry', { primitive: 'plane', width: 1.8 });
 						text.setAttribute('position', { x: 0, y: 0, z: 0.001 });
 						text.setAttribute('material', { shader: 'html', target: '#post-text-' + id + '-texture-' + cid, transparent: true, ratio: 'width' });
