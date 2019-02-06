@@ -320,7 +320,6 @@ var posts = {
 						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-texture', transparent: true, ratio: 'width' });
 
 						title.appendChild(nav_down);
-
 				} else {
 						var nav_down = document.createElement('a-entity');			
 						nav_down.id = 'navigation-arrow-down-' + cid;
