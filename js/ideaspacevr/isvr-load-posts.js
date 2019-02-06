@@ -280,7 +280,7 @@ var posts = {
 				title_texture.id = 'post-title-texture-' + cid;
 				title_texture.dataset.cid = cid;
 				title_texture.className = 'post-title-texture';
-				title_texture.innerHTML = obj['blog-posts'][i]['post-title-north']['#value']; 
+				title_texture.innerHTML = obj['blog-posts'][i]['post-title-north']['#value'] + '<p>&nbsp;</p>'; 
 				textures.appendChild(title_texture);
 
 				if (title_texture.getElementsByTagName('span')[0].style.color == 'rgb(0, 0, 0)' || title_texture.getElementsByTagName('span')[0].style.color == '') {

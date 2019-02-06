@@ -215,7 +215,8 @@
 								@endphp
 
 								<div id="post-title-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-title-texture">
-										{!! $blog_post['post-title-north']['#value'] !!}
+										{!! $blog_post['post-title-north']['#value'] !!} 
+										<p>&nbsp;</p>
 										<!--p><span style="font-family: arial, helvetica, sans-serif; font-size: 20pt; color: #ffffff;">@php /*$date_formatted*/ @endphp</span></p//-->
 								</div>
 
