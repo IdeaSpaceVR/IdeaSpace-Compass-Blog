@@ -54,14 +54,9 @@ var posts = {
 								this.createBlogPostContent('east', cid, this.positions[2], textures, post, obj, i);
 								this.createBlogPostContent('south-east', cid, this.positions[3], textures, post, obj, i);
 								this.createBlogPostContent('south', cid, this.positions[4], textures, post, obj, i);
-								this.createBlogPostContent('south-west', this.positions[5], cid, textures, post, obj, i);
+								this.createBlogPostContent('south-west', cid, this.positions[5], textures, post, obj, i);
 								this.createBlogPostContent('west', cid, this.positions[6], textures, post, obj, i);
 								this.createBlogPostContent('north-west', cid, this.positions[7], textures, post, obj, i);
-
-
-
-
-
 
 								this.post_counter++;
 
@@ -69,6 +64,12 @@ var posts = {
 
 
 						document.fonts.onloadingdone = function(fontFaceSetEvent) {
+
+								var post_title_all = document.querySelectorAll('.post-title');
+								for (var i = 0; i < post_title_all.length; i++) {
+										/* workaround to refresh texture, otherwise some fonts might not appear */
+										post_title_all[i].components.material.shader.__render();
+								}
 
 								var nav_arrow_up_all = document.querySelectorAll('.navigation-arrow-up');
 								for (var i = 0; i < nav_arrow_up_all.length; i++) {
@@ -268,24 +269,6 @@ var posts = {
 								};
 						}(cid, id, textures, position));
 						imageTexture.src = obj['blog-posts'][i]['post-image-' + id]['#uri']['#value'];
-
-                /*photosphere_image.onload = (function(content_id, i, length) {
-                    return function() {
-                        var image_elem = document.createElement('img');
-
-                        image_elem.setAttribute('id', 'img-photosphere-' + content_id);
-                        image_elem.setAttribute('class', 'img-photosphere-' + i);
-                        image_elem.setAttribute('data-content-id', content_id);
-                        image_elem.setAttribute('src', this.src);
-
-                        var assets = document.querySelector('a-assets');
-                        assets.appendChild(image_elem);
-
-                        self.all_assets_ready[content_id] = true;
-                    }
-                }(obj['photo-spheres'][i]['photo-sphere']['#content-id'], i, obj['photo-spheres'].length));
-                photosphere_image.src = obj['photo-spheres'][i]['photo-sphere']['#uri']['#value'];*/
-
 				}
 
 		}, /* createBlogPostContent */
@@ -306,6 +289,7 @@ var posts = {
 
 				var title = document.createElement('a-entity');			
 				title.id = 'post-title-' + cid;
+				title.className = 'post-title';
 				title.dataset.cid = cid;
 				title.setAttribute('geometry', { primitive: 'plane', width: 2 });
 				title.setAttribute('position', { x: this.positions[0]['x'], y: 0, z: this.positions[0]['z'] });
