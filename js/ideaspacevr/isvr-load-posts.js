@@ -201,6 +201,7 @@ var posts = {
 								link.setAttribute('link', { href: obj['blog-posts'][i]['post-link-' + id]['#value'], visualAspectEnabled: false });	
 						}
 						link.setAttribute('geometry', { primitive: 'plane', width: 1.8 });
+						link.className = 'post-link';
 
 						wrapper.appendChild(link);
 						post.appendChild(wrapper);
