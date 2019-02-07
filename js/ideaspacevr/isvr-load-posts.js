@@ -179,7 +179,7 @@ var posts = {
 
 						var wrapper = document.createElement('a-rounded');
 						wrapper.id = 'post-link-wrapper-' + id + '-' + cid;
-						wrapper.setAttribute('isvr-link-hover', { id: 'id: post-link-wrapper2-' + id + '-' + cid });
+						wrapper.setAttribute('isvr-link-hover', { id: 'post-link-wrapper2-' + id + '-' + cid });
 						if (position['z'] < 0) {
 								wrapper.setAttribute('position', { x: position['x'], y: 0, z: (position['z'] + 0.001) });
 						} else {
@@ -195,13 +195,16 @@ var posts = {
 						wrapper.setAttribute('bottom-right-radius', 0.06);
 
 						var link = document.createElement('a-entity');
-						link.id = 'post-text-' + id + '-' + cid;
 						link.setAttribute('position', { x: 0, y: 0, z: 0.001 });
 						link.setAttribute('material', { shader: 'html', target: '#post-link-' + id + '-texture-' + cid, transparent: true, ratio: 'width' });
 						if (obj['blog-posts'][i]['post-link-' + id]['#value'].trim() != '') {
 								link.setAttribute('link', { href: obj['blog-posts'][i]['post-link-' + id]['#value'], visualAspectEnabled: false });	
 						}
 						link.setAttribute('geometry', { primitive: 'plane', width: 1.8 });
+
+						wrapper.appendChild(link);
+						post.appendChild(wrapper);
+						post.appendChild(wrapper_active);
 
 				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'image' && ('post-image-' + id) in obj['blog-posts'][i]) {
 
