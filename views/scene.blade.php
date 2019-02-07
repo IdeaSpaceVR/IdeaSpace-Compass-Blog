@@ -244,13 +244,14 @@
         		/* DOM content is loaded */
 						@include('theme::partials.texture_rerender_script')
 
-						@include('theme::partials.text_image_border_script', ['id' => 'north-east'])
-						@include('theme::partials.text_image_border_script', ['id' => 'east'])
-						@include('theme::partials.text_image_border_script', ['id' => 'south-east'])
-						@include('theme::partials.text_image_border_script', ['id' => 'south'])
-						@include('theme::partials.text_image_border_script', ['id' => 'south-west'])
-						@include('theme::partials.text_image_border_script', ['id' => 'west'])
-						@include('theme::partials.text_image_border_script', ['id' => 'north-west'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'north-east'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'east'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'south-east'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'south'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'south-west'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'west'])
+						@include('theme::partials.wrapper_border_script', ['id' => 'north-west'])
+
 
 // TEST
 posts.load('{{ $space_url }}/content/blog-posts?per-page=3&page=2', {{ $meters_between_posts }}, {{ $max_posts }}, {{ count($content['blog-posts']) }}, {!! json_encode($positions) !!});

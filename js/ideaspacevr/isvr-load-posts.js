@@ -15,7 +15,6 @@ var posts = {
 
 		}, /* load */
 
-// http://dev2.ideaspacevr.org/testsdsda/preview/content/blog-posts?per-page=3&page=2
 
 		responseHandler: function () {
 
@@ -103,7 +102,7 @@ var posts = {
 						var texture = document.createElement('div');
 						texture.id = 'post-text-' + id + '-texture-' + cid;
 						texture.dataset.cid = cid;
-						texture.className = 'post-text-' + id + '-texture';
+						texture.className = 'post-text-' + id + '-texture post-text-texture';
 						texture.style.backgroundColor = obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value'];
 						texture.innerHTML = obj['blog-posts'][i]['post-text-' + id]['#value'];
 						textures.appendChild(texture);
@@ -138,7 +137,7 @@ var posts = {
 						var texture = document.createElement('div');
 						texture.id = 'post-link-' + id + '-texture-' + cid;
 						texture.dataset.cid = cid;
-						texture.className = 'post-link-' + id + '-texture';
+						texture.className = 'post-link-' + id + '-texture post-link-texture';
 						texture.style.backgroundColor = obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value'];
 						if (obj['blog-posts'][i]['post-link-text-' + id]['#value'].trim() != '') {
 								texture.innerHTML = obj['blog-posts'][i]['post-link-text-' + id]['#value'];
@@ -150,7 +149,7 @@ var posts = {
 						texture = document.createElement('div');
 						texture.id = 'post-link-' + id + '-texture-' + cid + '-active';
 						texture.dataset.cid = cid;
-						texture.className = 'post-link-' + id + '-texture';
+						texture.className = 'post-link-' + id + '-texture post-link-texture';
 						texture.style.color = '#0080e5'; 
 						texture.style.backgroundColor = obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value'];
 						if (obj['blog-posts'][i]['post-link-text-' + id]['#value'].trim() != '') {
@@ -216,7 +215,7 @@ var posts = {
 										var texture = document.createElement('img');
 										texture.id = 'post-image-' + id + '-texture-' + cid;
 										texture.dataset.cid = cid;
-										texture.className = 'post-image-' + id + '-texture';
+										texture.className = 'post-image-' + id + '-texture post-image-texture';
 										texture.src = this.src;
 										texture.crossOrigin = 'anonymous';
 										textures.appendChild(texture);
