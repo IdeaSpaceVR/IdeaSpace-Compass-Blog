@@ -15,7 +15,6 @@ var posts = {
 
 		}, /* load */
 
-// http://dev2.ideaspacevr.org/testsdsda/preview/content/blog-posts?per-page=3&page=2
 
 		responseHandler: function () {
 
