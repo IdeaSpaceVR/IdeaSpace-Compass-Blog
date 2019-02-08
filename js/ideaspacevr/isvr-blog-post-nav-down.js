@@ -4,6 +4,9 @@ AFRAME.registerComponent('isvr-blog-post-nav-down', {
 		schema: {
 				id: {
             type: 'string'
+        },
+				cid: {
+            type: 'number'
         }
 		},
   
@@ -18,6 +21,10 @@ AFRAME.registerComponent('isvr-blog-post-nav-down', {
 
         this.el.addEventListener('mouseleave', function() {
 						document.querySelector('#' + self.data.id).setAttribute('material', 'target', '#navigation-arrow-down-texture');
+        });
+
+				this.el.addEventListener('click', function() {
+            document.getElementById('posts-wrapper').emit('nav_down_' + self.data.cid);
         });
 		}
 

@@ -15,6 +15,7 @@ var posts = {
 
 		}, /* load */
 
+// http://dev2.ideaspacevr.org/testsdsda/preview/content/blog-posts?per-page=3&page=2
 
 		responseHandler: function () {
 
@@ -303,8 +304,7 @@ var posts = {
 						var nav_up = document.createElement('a-entity');			
 						nav_up.id = 'navigation-arrow-up-' + cid;
 						nav_up.className = 'navigation-arrow-up collidable';
-						nav_up.setAttribute('isvr-navigation-up', { cid: cid });
-						nav_up.setAttribute('isvr-blog-post-nav-up', { id: 'navigation-arrow-up-' + cid });
+						nav_up.setAttribute('isvr-blog-post-nav-up', { id: 'navigation-arrow-up-' + cid, cid: cid });
 						nav_up.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
 						nav_up.setAttribute('position', { x: -1.15, y: 0, z: -0.001 });
 						nav_up.setAttribute('material', { shader: 'html', target: '#navigation-arrow-up-texture', transparent: true, ratio: 'width' });
@@ -325,8 +325,7 @@ var posts = {
 						var nav_down = document.createElement('a-entity');			
 						nav_down.id = 'navigation-arrow-down-' + cid;
 						nav_down.className = 'navigation-arrow-down collidable';
-						nav_down.setAttribute('isvr-navigation-down', { cid: cid });
-						nav_down.setAttribute('isvr-blog-post-nav-down', { id: 'navigation-arrow-down-' + cid });
+						nav_down.setAttribute('isvr-blog-post-nav-down', { id: 'navigation-arrow-down-' + cid, cid: cid });
 						nav_down.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
 						nav_down.setAttribute('position', { x: 1.15, y: 0, z: -0.001 });
 						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-texture', transparent: true, ratio: 'width' });
