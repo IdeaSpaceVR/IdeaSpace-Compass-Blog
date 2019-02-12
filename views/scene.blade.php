@@ -238,6 +238,8 @@
 		</div><!-- textures //-->
 
     <script>
+		var positions = {!! json_encode($positions) !!};
+
     (function() {
         /* DOM is loaded */
 				ready(function() {
@@ -252,9 +254,8 @@
 						@include('theme::partials.wrapper_border_script', ['id' => 'west'])
 						@include('theme::partials.wrapper_border_script', ['id' => 'north-west'])
 
-
 // TEST
-posts.load('{{ $space_url }}/content/blog-posts?per-page=3&page=2', {{ $meters_between_posts }}, {{ $max_posts }}, {{ count($content['blog-posts']) }}, {!! json_encode($positions) !!});
+//posts.load('{{ $space_url }}/content/blog-posts?per-page=3&page=2', {{ $meters_between_posts }}, {{ $max_posts }}, {{ count($content['blog-posts']) }}, {!! json_encode($positions) !!});
 
 				});
     })();

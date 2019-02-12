@@ -1,12 +1,13 @@
 var posts = {
 
-		load: function (url, meters, counter, total_posts, positions) {
+		load: function (url, meters, posts_per_page, total_posts, positions, post_counter) {
 
 				this.url = url;
 				this.meters_between_posts = meters;
-				this.post_counter = counter;
+				this.posts_per_page = posts_per_page;
 				this.total_posts = total_posts;
 				this.positions = positions;
+				this.post_counter = post_counter;
 
 				this.xmlhttp = new XMLHttpRequest();
 				this.xmlhttp.onreadystatechange = this.responseHandler.bind(this);
@@ -45,7 +46,7 @@ var posts = {
 
 
 								/* blog post title textures and entities */	
-								this.createBlogPostTitleContent(cid, this.positions, textures, post, obj, i, this.post_counter, this.total_posts);								
+								this.createBlogPostTitleContent(cid, this.positions, textures, post, obj, i, this.post_counter, this.total_posts, this.url, this.meters_between_posts, this.posts_per_page);								
 
 
 								/* blog post textures and entities */
@@ -277,7 +278,7 @@ var posts = {
 		}, /* createBlogPostContent */
 
 
-		createBlogPostTitleContent: function (cid, positions, textures, post, obj, i, post_counter, total_posts) {
+		createBlogPostTitleContent: function (cid, positions, textures, post, obj, i, post_counter, total_posts, url, meters, posts_per_page) {
 
 				var title_texture = document.createElement('div');
 				title_texture.id = 'post-title-texture-' + cid;
@@ -324,7 +325,7 @@ var posts = {
 						var nav_down = document.createElement('a-entity');			
 						nav_down.id = 'navigation-arrow-down-' + cid;
 						nav_down.className = 'navigation-arrow-down collidable';
-						nav_down.setAttribute('isvr-blog-post-nav-down', { id: 'navigation-arrow-down-' + cid, cid: cid });
+						nav_down.setAttribute('isvr-blog-post-nav-down', { id: 'navigation-arrow-down-' + cid, cid: cid, url: url, meters: meters, posts_per_page: posts_per_page, total_posts: total_posts, post_counter: post_counter  });
 						nav_down.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
 						nav_down.setAttribute('position', { x: 1.15, y: 0, z: -0.001 });
 						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-texture', transparent: true, ratio: 'width' });
