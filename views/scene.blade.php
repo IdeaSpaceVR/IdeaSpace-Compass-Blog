@@ -238,7 +238,10 @@
 		</div><!-- textures //-->
 
     <script>
+		/* global */
 		var positions = {!! json_encode($positions) !!};
+		var prev_post_counter = 1;
+		var posts_loaded = [];
 
     (function() {
         /* DOM is loaded */
@@ -253,10 +256,6 @@
 						@include('theme::partials.wrapper_border_script', ['id' => 'south-west'])
 						@include('theme::partials.wrapper_border_script', ['id' => 'west'])
 						@include('theme::partials.wrapper_border_script', ['id' => 'north-west'])
-
-// TEST
-//posts.load('{{ $space_url }}/content/blog-posts?per-page=3&page=2', {{ $meters_between_posts }}, {{ $max_posts }}, {{ count($content['blog-posts']) }}, {!! json_encode($positions) !!});
-
 				});
     })();
     </script>
