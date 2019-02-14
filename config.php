@@ -21,13 +21,33 @@ return [
       '#max-values' => 1,
       '#fields' => [
 
-        'space-title' => [
-          '#label' => 'Space Title',
+        'blog-title' => [
+          '#label' => 'Blog Title',
           '#description' => 'Enter a title.',
           '#help' => 'Enter a title.',
           '#type' => 'textfield',
 					'#contentformat' => 'html/text',
 					'#maxlength' => 1000,
+          '#required' => false,
+        ],
+
+        'blog-description' => [
+          '#label' => 'About Your Blog',
+          '#description' => 'What is your blog about?',
+          '#help' => 'Enter a text.',
+          '#type' => 'textarea',
+					'#contentformat' => 'html/text',
+					'#maxlength' => 10000,
+          '#required' => false,
+        ],
+
+        'blog-icon' => [
+          '#label' => 'Blog Icon',
+          '#description' => 'Add an icon which represents your blog.',
+          '#help' => 'Add an image.',
+          '#type' => 'image',
+					'#content-preview-image' => true,
+          '#file-extension' => ['jpg', 'png', 'gif'],
           '#required' => false,
         ],
 
