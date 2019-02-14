@@ -36,6 +36,7 @@ return [
           '#description' => 'What is your blog about?',
           '#help' => 'Enter a text.',
           '#type' => 'textarea',
+					'#rows' => 10,
 					'#contentformat' => 'html/text',
 					'#maxlength' => 10000,
           '#required' => false,
@@ -51,8 +52,8 @@ return [
           '#required' => false,
         ],
 
-        'background-color' => [
-          '#label' => 'Background Color',
+        'about-blog-background-color' => [
+          '#label' => 'About Your Blog Background Color',
           '#description' => 'Select a background color.',
           '#help' => 'Select a background color.',
           '#type' => 'color',
