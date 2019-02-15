@@ -59,8 +59,8 @@
 								id="posts-wrapper" 
 								@foreach ($content['blog-posts'] as $blog_post)
 										@if ($post_counter < $max_posts)
-												animation__nav_up_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1000; easing: linear; to: 0 {{ ((($post_counter - 1) * $meters_between_posts)) }} 0; startEvents: nav_up_{{ $blog_post['post-title-north']['#content-id'] }}"
-												animation__nav_down_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1000; easing: linear; to: 0 {{ (($post_counter * $meters_between_posts) + 10) }} 0; startEvents: nav_down_{{ $blog_post['post-title-north']['#content-id'] }}"
+												animation__nav_up_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1; easing: linear; to: 0 {{ ((($post_counter - 1) * $meters_between_posts)) }} 0; startEvents: nav_up_{{ $blog_post['post-title-north']['#content-id'] }}"
+												animation__nav_down_{{ $blog_post['post-title-north']['#content-id'] }}="property: position; dur: 1; easing: linear; to: 0 {{ (($post_counter * $meters_between_posts) + 10) }} 0; startEvents: nav_down_{{ $blog_post['post-title-north']['#content-id'] }}"
 												@php
 												$post_counter++;
 												@endphp
@@ -165,6 +165,28 @@
 
 						</a-entity>
 
+				@endif
+
+		
+				@if (isset($content['general-settings']))
+				<a-rounded
+						id="about-wrapper"
+						position="{{ $positions[0]['x'] }} 0 {{ $positions[0]['z'] }}"
+						look-at="0 0 0"
+						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}"
+						width="2"
+						height="3"
+						top-left-radius="0.06"
+						top-right-radius="0.06"
+						bottom-left-radius="0.06"
+						bottom-right-radius="0.06">
+						<a-entity
+								id="about"
+								geometry="primitive: plane; width: 1.8"
+								position="0 0 0.001"
+								material="shader: html; target: #about-texture; transparent: true; ratio: width">
+						</a-entity>
+				</a-rounded>
 				@endif
 
 
