@@ -64,9 +64,9 @@ return [
         'blog-audio' => [
           '#label' => 'Sound',
           '#description' => 'Add background sound to your blog.',
-          '#help' => 'Add background sound to your post. Piano by ShadyDave: https://freesound.org/people/ShadyDave/sounds/262259/ License: https://creativecommons.org/licenses/by-nc/3.0/.',
+          '#help' => 'Add background sound to your post. Piano by <a href="https://freesound.org/people/ShadyDave/sounds/262259/" target="_blank">ShadyDave</a>. License: <a href="https://creativecommons.org/licenses/by-nc/3.0/" target="_blank">Creative Commons</a>',
           '#type' => 'options-select',
-          '#options' => ['birds-0' => 'Birds', 'birds-1' => 'More Birds', 'piano-0' => 'Piano'],
+          '#options' => ['birds-0' => 'Birds', 'piano-0' => 'Piano'],
           '#required' => false,
         ],
 
