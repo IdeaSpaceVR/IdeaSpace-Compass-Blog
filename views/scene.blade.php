@@ -168,10 +168,17 @@
 				@endif
 
 		
-				@if (isset($content['general-settings']))
+				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
+				<a-entity
+						id="about-image"
+						geometry="primitive: plane; width: 1.8"
+						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
+						look-at="0 0 0"
+						material="shader: html; target: #about-image-texture; transparent: true; ratio: width">
+				</a-entity>
 				<a-rounded
 						id="about-wrapper"
-						position="{{ $positions[0]['x'] }} 0 {{ $positions[0]['z'] }}"
+						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
 						look-at="0 0 0"
 						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}"
 						width="2"
@@ -181,10 +188,10 @@
 						bottom-left-radius="0.06"
 						bottom-right-radius="0.06">
 						<a-entity
-								id="about"
+								id="about-text"
 								geometry="primitive: plane; width: 1.8"
 								position="0 0 0.001"
-								material="shader: html; target: #about-texture; transparent: true; ratio: width">
+								material="shader: html; target: #about-text-texture; transparent: true; ratio: width">
 						</a-entity>
 				</a-rounded>
 				@endif
@@ -235,6 +242,25 @@
 				<div id="navigation-arrow-down-inactive-texture" class="navigation-arrow-texture">
 						<i class="far fa-arrow-alt-circle-down" style="color:#3a3a3a;font-size:50pt;"></i>
 				</div>
+
+
+				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
+						@if (isset($content['general-settings'][0]['blog-icon']))
+						<div id="about-image-texture">
+								<div style="text-align:center">
+										<img src="{{ $content['general-settings'][0]['blog-icon']['blog-icon-resized']['#uri']['#value'] }}" alt="About">
+								</div>
+						</div>
+						@endif
+						@if (isset($content['general-settings'][0]['blog-about']))
+						<div id="about-text-texture">
+								<div style="margin-left:17px">
+										{!! $content['general-settings'][0]['blog-about']['#value'] !!}
+								</div>
+						</div>
+						@endif
+				@endif
+
 
 				@php
 				$post_counter = 0;
@@ -289,6 +315,9 @@
 						@include('theme::partials.wrapper_border_script', ['id' => 'south-west'])
 						@include('theme::partials.wrapper_border_script', ['id' => 'west'])
 						@include('theme::partials.wrapper_border_script', ['id' => 'north-west'])
+
+						@include('theme::partials.wrapper_about_border_script')
+
 				});
     })();
     </script>

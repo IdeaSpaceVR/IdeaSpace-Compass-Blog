@@ -178,4 +178,21 @@ body {
 		font-family: Arial, Helvetica, sans-serif;
 }
 
+#about-text-texture {
+    width: 512px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+#about-image-texture img {
+		border-radius: 150%;
+		width: 256px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
 

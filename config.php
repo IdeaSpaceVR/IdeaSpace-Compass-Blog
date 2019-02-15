@@ -6,7 +6,7 @@ return [
   '#theme-key' => 'ideaspace-compass-blog',
   '#theme-version' => '1.0',
   '#ideaspace-version' => '>=1.2.0',
-  '#theme-description' => 'Surround yourself with blog posts.',
+  '#theme-description' => 'Immerse yourself in blog posts.',
   '#theme-author-name' => 'IdeaSpaceVR',
   '#theme-author-email' => 'info@ideaspacevr.org',
   '#theme-homepage' => 'https://www.ideaspacevr.org/themes',
@@ -39,6 +39,16 @@ return [
 					'#rows' => 10,
 					'#contentformat' => 'html/text',
 					'#maxlength' => 10000,
+          '#required' => false,
+        ],
+
+        'blog-about-text' => [
+          '#label' => 'About Link Text',
+          '#description' => 'Enter a text.',
+          '#help' => 'Link text to access the about box.',
+          '#type' => 'textfield',
+					'#contentformat' => 'html/text',
+					'#maxlength' => 500,
           '#required' => false,
         ],
 
