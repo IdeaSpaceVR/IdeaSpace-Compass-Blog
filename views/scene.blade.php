@@ -21,6 +21,10 @@
 
         <a-assets>
             <audio id="audio-click" src="{{ url($theme_dir . '/assets/audio/ui_click0.ogg') }}" response-type="arraybuffer" crossorigin></audio>
+
+						@if (isset($content['general-settings'][0]['blog-icon']))
+								<img id="about-image-texture" src="{{ $content['general-settings'][0]['blog-icon']['blog-icon-resized']['#uri']['#value'] }}" crossorigin>
+						@endif
 				</a-assets>
 
 				<a-entity id="sound-click" sound="src: #audio-click"></a-entity>
@@ -169,13 +173,6 @@
 
 		
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
-				<a-entity
-						id="about-image"
-						geometry="primitive: plane; width: 1.8"
-						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
-						look-at="0 0 0"
-						material="shader: html; target: #about-image-texture; transparent: true; ratio: width">
-				</a-entity>
 				<a-rounded
 						id="about-wrapper"
 						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
@@ -187,11 +184,12 @@
 						top-right-radius="0.06"
 						bottom-left-radius="0.06"
 						bottom-right-radius="0.06">
+						<a-circle id="about-image" radius="0.3" src="#about-image-texture"></a-circle>
 						<a-entity
-								id="about-text"
+								id="about"
 								geometry="primitive: plane; width: 1.8"
 								position="0 0 0.001"
-								material="shader: html; target: #about-text-texture; transparent: true; ratio: width">
+								material="shader: html; target: #about-texture; transparent: true; ratio: width">
 						</a-entity>
 				</a-rounded>
 				@endif
@@ -245,20 +243,13 @@
 
 
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
-						@if (isset($content['general-settings'][0]['blog-icon']))
-						<div id="about-image-texture">
-								<div style="text-align:center">
-										<img src="{{ $content['general-settings'][0]['blog-icon']['blog-icon-resized']['#uri']['#value'] }}" alt="About">
-								</div>
+						<div id="about-texture">
+								@if (isset($content['general-settings'][0]['blog-about']))
+										<div style="margin-left:17px;padding-top:70px">
+												{!! $content['general-settings'][0]['blog-about']['#value'] !!}
+										</div>
+								@endif
 						</div>
-						@endif
-						@if (isset($content['general-settings'][0]['blog-about']))
-						<div id="about-text-texture">
-								<div style="margin-left:17px">
-										{!! $content['general-settings'][0]['blog-about']['#value'] !!}
-								</div>
-						</div>
-						@endif
 				@endif
 
 
@@ -316,7 +307,9 @@
 						@include('theme::partials.wrapper_border_script', ['id' => 'west'])
 						@include('theme::partials.wrapper_border_script', ['id' => 'north-west'])
 
-						@include('theme::partials.wrapper_about_border_script')
+						@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
+								@include('theme::partials.wrapper_about_border_script')
+						@endif
 
 				});
     })();
