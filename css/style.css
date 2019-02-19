@@ -186,4 +186,15 @@ body {
     z-index: -2;
 }
 
+.about-link-texture {
+    width: 1024px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+		background-color: transparent;
+		text-align: center;
+		padding: 10px;
+}
+
 

@@ -171,8 +171,22 @@
 
 				@endif
 
-		
+
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
+				<a-circle 
+						radius="1" 
+						position="0 -2 0"
+						isvr-about-link
+						rotation="-90 -90 0"
+						class="collidable"
+						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}">
+						<a-entity 
+								id="about-link" 
+								position="0 0 0.001"
+								geometry="primitive: plane; width: 8"
+								material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
+						</a-entity>
+				</a-circle>
 				<a-rounded
 						id="about-wrapper"
 						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
@@ -239,6 +253,14 @@
 				</div>
 				<div id="navigation-arrow-down-inactive-texture" class="navigation-arrow-texture">
 						<i class="far fa-arrow-alt-circle-down" style="color:#3a3a3a;font-size:50pt;"></i>
+				</div>
+
+
+				<div id="about-link-texture" class="about-link-texture">
+						<i class="far fa-user-circle" style="color:#3a3a3a;font-size:50pt;"></i>
+				</div>
+				<div id="about-link-hover-texture" class="about-link-texture">
+						<i class="far fa-user-circle" style="color:#0080e5;font-size:50pt;"></i>
 				</div>
 
 

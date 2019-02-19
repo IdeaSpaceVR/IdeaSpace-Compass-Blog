@@ -42,16 +42,6 @@ return [
           '#required' => false,
         ],
 
-        'blog-about-text' => [
-          '#label' => 'About Link Text',
-          '#description' => 'Enter a text.',
-          '#help' => 'Link text to access the about box.',
-          '#type' => 'textfield',
-					'#contentformat' => 'html/text',
-					'#maxlength' => 500,
-          '#required' => false,
-        ],
-
         'about-blog-background-color' => [
           '#label' => 'About Your Blog Background Color',
           '#description' => 'Select a background color.',

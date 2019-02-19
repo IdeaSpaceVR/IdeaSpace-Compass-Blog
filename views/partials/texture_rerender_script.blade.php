@@ -43,6 +43,7 @@ document.fonts.onloadingdone = function(fontFaceSetEvent) {
 		}*/
 		/* update html shader material, even if font color is not changed */
 		document.querySelector('#about').components.material.shader.__render();
+		document.querySelector('#about-link').components.material.shader.__render();
 
 }
 
