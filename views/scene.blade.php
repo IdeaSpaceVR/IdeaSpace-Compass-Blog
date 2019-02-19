@@ -178,7 +178,7 @@
 						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
 						look-at="0 0 0"
 						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}"
-						width="2"
+						width="3"
 						height="3"
 						top-left-radius="0.06"
 						top-right-radius="0.06"
@@ -187,7 +187,7 @@
 						<a-circle id="about-image" radius="0.3" src="#about-image-texture"></a-circle>
 						<a-entity
 								id="about"
-								geometry="primitive: plane; width: 1.8"
+								geometry="primitive: plane; width: 2.8"
 								position="0 0 0.001"
 								material="shader: html; target: #about-texture; transparent: true; ratio: width">
 						</a-entity>
@@ -245,7 +245,7 @@
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
 						<div id="about-texture">
 								@if (isset($content['general-settings'][0]['blog-about']))
-										<div style="margin-left:17px;padding-top:70px">
+										<div style="margin-left:17px;padding-top:80px">
 												{!! $content['general-settings'][0]['blog-about']['#value'] !!}
 										</div>
 								@endif

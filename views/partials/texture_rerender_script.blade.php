@@ -34,13 +34,13 @@ document.fonts.onloadingdone = function(fontFaceSetEvent) {
 	 	}	
 
 
-		var about_texture = document.querySelector('#about-texture');
+		/*var about_texture = document.querySelector('#about-texture');
 		var about_texture_elems = about_texture.getElementsByTagName('span');
 		for (var i = 0; i < about_texture_elems.length; i++) {
 				if (about_texture_elems[i].style.color == 'rgb(0, 0, 0)' || about_texture_elems[i].style.color == '') {
 						about_texture_elems[i].style.color = 'rgb(255, 255, 255)';
 				}
-		}
+		}*/
 		/* update html shader material, even if font color is not changed */
 		document.querySelector('#about').components.material.shader.__render();
 

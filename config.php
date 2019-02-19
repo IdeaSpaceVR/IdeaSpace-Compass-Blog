@@ -57,7 +57,7 @@ return [
           '#description' => 'Select a background color.',
           '#help' => 'Select a background color.',
           '#type' => 'color',
-					'#default_value' => '#000000',
+					'#default_value' => '#FFFFFF',
           '#required' => false,
         ],
 
