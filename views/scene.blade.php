@@ -177,10 +177,9 @@
 						id="about-link" 
 						class="collidable"
 						isvr-about-link
-						position="1.5 -1.5 0"
+						position="1.5 -1 0"
 						look-at="0 0 0"
-						position="0 0 0.001"
-						geometry="primitive: plane; width: 8"
+						geometry="primitive: plane; width: 1.1"
 						material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
 				</a-entity>
 				<a-rounded
