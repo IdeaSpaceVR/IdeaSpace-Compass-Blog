@@ -189,11 +189,15 @@
 				</a-circle>
 				<a-rounded
 						id="about-wrapper"
-						position="{{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}"
-						look-at="0 0 0"
+						class="collidable"
+						position="{{ ($positions[0]['x'] - 0.001) }} -8 {{ $positions[0]['z'] }}"
+						rotation="0 -90 0"
 						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}"
 						width="3"
 						height="3"
+						animation__show_about="property: position; dur: 1000; to: {{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}; startEvents: show-about"
+						animation__hide_about="property: position; dur: 1000; to: {{ ($positions[0]['x'] - 0.001) }} -8 {{ $positions[0]['z'] }}; startEvents: hide-about"
+						visible="false"
 						top-left-radius="0.06"
 						top-right-radius="0.06"
 						bottom-left-radius="0.06"
