@@ -173,20 +173,16 @@
 
 
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
-				<a-circle 
-						radius="1" 
-						position="0 -2 0"
-						isvr-about-link
-						rotation="-90 -90 0"
+				<a-entity 
+						id="about-link" 
 						class="collidable"
-						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}">
-						<a-entity 
-								id="about-link" 
-								position="0 0 0.001"
-								geometry="primitive: plane; width: 8"
-								material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
-						</a-entity>
-				</a-circle>
+						isvr-about-link
+						position="1.5 -1.5 0"
+						look-at="0 0 0"
+						position="0 0 0.001"
+						geometry="primitive: plane; width: 8"
+						material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
+				</a-entity>
 				<a-rounded
 						id="about-wrapper"
 						class="collidable"
