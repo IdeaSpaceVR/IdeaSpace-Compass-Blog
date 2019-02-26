@@ -47,7 +47,7 @@
 				@if (isset($content['blog-posts']))
 
 						@php
-						$meters_between_posts = 10;
+						$meters_between_posts = 10; 
 
 						function getCirclePoints($number_points, $radius) {
 							$p = [];
@@ -180,7 +180,7 @@
 				@endif
 
 
-				<a-circle
+				<!--a-circle
 						position="0 -3 0" 
 						segments="64" 
 						radius="1.2" 
@@ -193,7 +193,7 @@
 								rotation="0 0 -90" 
 								position="0 0 0.001">
 						</a-image>
-				</a-circle>	
+				</a-circle//-->	
 
 
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))

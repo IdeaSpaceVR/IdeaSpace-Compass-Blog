@@ -111,9 +111,11 @@ var posts = {
 
 						var wrapper = document.createElement('a-rounded');
 						wrapper.id = 'post-text-wrapper-' + id + '-' + cid;
+						wrapper.className = 'collidable';
 						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper.setAttribute('isvr-text-nav');
 						wrapper.setAttribute('width', 2);
 						wrapper.setAttribute('height', 3);
 						wrapper.setAttribute('top-left-radius', 0.06);
