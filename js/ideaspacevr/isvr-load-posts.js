@@ -42,7 +42,7 @@ var posts = {
 								var post = document.createElement('a-entity');
 								post.setAttribute('position', { x: 0, y: -(this.post_counter * this.meters_between_posts), z: 0 }); 
 								post.id = 'post-' + cid;
-								post.className = 'post post-' + this.post_counter;
+								post.className = 'post post-' + this.post_counter; 
 								posts_wrapper.appendChild(post);
 
 
@@ -174,6 +174,7 @@ var posts = {
 								wrapper_active.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
 						}
 						wrapper_active.setAttribute('color', '#0080e5');
+						wrapper_active.className = 'collidable';
 						wrapper_active.setAttribute('visible', false);
 						wrapper_active.setAttribute('look-at', { x: 0, y: 0, z: 0 });
 						wrapper_active.setAttribute('width', 2);
@@ -193,6 +194,7 @@ var posts = {
 						}
 						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
+						wrapper.className = 'collidable';
 						wrapper.setAttribute('width', 1.95);
 						wrapper.setAttribute('height', 0.45);
 						wrapper.setAttribute('top-left-radius', 0.06);
