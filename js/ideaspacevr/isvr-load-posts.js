@@ -42,7 +42,7 @@ var posts = {
 								var post = document.createElement('a-entity');
 								post.setAttribute('position', { x: 0, y: -(this.post_counter * this.meters_between_posts), z: 0 }); 
 								post.id = 'post-' + cid;
-								post.className = 'post post-' + this.post_counter + ' collidable';
+								post.className = 'post post-' + this.post_counter;
 								posts_wrapper.appendChild(post);
 
 
@@ -112,10 +112,13 @@ var posts = {
 						var wrapper = document.createElement('a-rounded');
 						wrapper.id = 'post-text-wrapper-' + id + '-' + cid;
 						wrapper.className = 'collidable';
+
+						/* empty object needed, otherwise component is not added */
+						wrapper.setAttribute('isvr-text-nav', {});
+
 						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
-						wrapper.setAttribute('isvr-text-nav');
 						wrapper.setAttribute('width', 2);
 						wrapper.setAttribute('height', 3);
 						wrapper.setAttribute('top-left-radius', 0.06);
@@ -132,7 +135,7 @@ var posts = {
 
 						var height_meters = (texture.offsetHeight * wrapper.getAttribute('width')) / texture.offsetWidth;
 						wrapper.setAttribute('height', height_meters);
-				
+
 						wrapper.appendChild(text);
 						post.appendChild(wrapper);
 

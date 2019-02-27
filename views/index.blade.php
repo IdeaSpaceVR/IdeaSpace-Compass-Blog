@@ -45,6 +45,7 @@
     <script src="{{ url($theme_dir . '/js/howler/howler.min.js') }}"></script>
 		<!--script src="{{ url($theme_dir . '/js/aframe-log-component.min.js') }}"></script//-->
 
+		<script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-text-nav.js') }}"></script>		
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-helpers.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-load-posts.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-scene.js') }}"></script>
@@ -52,7 +53,6 @@
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-about-link.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-blog-post-nav-up.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-blog-post-nav-down.js') }}"></script>		
-		<script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-text-nav.js') }}"></script>		
 </head>
 <body>
 

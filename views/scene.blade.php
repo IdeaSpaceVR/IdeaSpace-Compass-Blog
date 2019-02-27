@@ -91,7 +91,7 @@
 										<a-entity 
 												position="0 -{{ ($post_counter * $meters_between_posts) }} 0" 
 												id="post-{{ $blog_post['post-title-north']['#content-id'] }}" 
-												class="post post-{{ $post_counter }} collidable" 
+												class="post post-{{ $post_counter }}" 
 												@if ($post_counter == 0) visible="true" @endif>
 
 												@include('theme::partials.post_title', ['position' => $positions[0], 'post_counter' => $post_counter])
