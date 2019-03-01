@@ -7,7 +7,6 @@ AFRAME.registerComponent('isvr-text-nav', {
 				this.mouseenter_handler = this.mouseenter_handler.bind(this);
 				this.mouseleave_handler = this.mouseleave_handler.bind(this);
 
-				//this.stateadded_handler = this.stateadded_handler.bind(this);
 				this.thumbupstart_handler = this.thumbupstart_handler.bind(this);
 				this.thumbupend_handler = this.thumbupend_handler.bind(this);
 				this.thumbdownstart_handler = this.thumbdownstart_handler.bind(this);
@@ -25,25 +24,12 @@ AFRAME.registerComponent('isvr-text-nav', {
 				this.thumbdownstart = false;
 				this.last_time = 0;
 
-				this.scrollupstop = true;
-				this.scrolldownstop = false;
-
 				this.el.addEventListener('mouseenter', this.mouseenter_handler); 
 				this.el.addEventListener('mouseleave', this.mouseleave_handler); 
 
 				window.isvr_text_nav_mw_listenerset = false;
 				window.isvr_text_nav_tc_listenerset = false;
-
-				/* listen to entered-vr state */
-				//this.el.sceneEl.addEventListener('stateadded', this.stateadded_handler);
 		},
-
-		
-		/*stateadded_handler: function(e) {
-
-				if (e.detail == 'entered-vr') {
-				}
-		},*/
 
 
 		thumbupstart_handler: function (e) {
@@ -177,25 +163,14 @@ AFRAME.registerComponent('isvr-text-nav', {
 				var pos = this.el.getAttribute('position');
 				var height = this.el.getAttribute('height');
 
-
 				/* top end */
-				if (-((height / 2) - 0.5) < pos.y && this.scrollupstop == false && this.scrolldownstop == true) {
+				if (-((height / 2) - 0.5) < pos.y && Math.sign(delta) == -1) {
 						this.el.setAttribute('position', { x: pos.x, y: (pos.y + delta), z: pos.z });
-//console.log('in 2');
-				} else {
-//						this.el.setAttribute('position', { x: pos.x, y: (pos.y + 0.01), z: pos.z });
-this.scrollupstop = true;
-this.scrolldownstop = false;
 				}
 
-
 				/* bottom end */
-				if (((height / 2) - 0.5) > pos.y && this.scrolldownstop == false && this.scrollupstop == true) {
+				if (((height / 2) - 0.5) > pos.y && Math.sign(delta) == 1) {
 						this.el.setAttribute('position', { x: pos.x, y: (pos.y + delta), z: pos.z });
-				} else {
-//						this.el.setAttribute('position', { x: pos.x, y: (pos.y - 0.01), z: pos.z });
-this.scrolldownstop = true;
-this.scrollupstop = false;
 				}
 
     		return false;

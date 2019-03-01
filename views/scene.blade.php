@@ -248,7 +248,7 @@
 				<a-entity class="laser-controls-wrapper" @if (!is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
 				</a-entity>
 
-				<!--a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
+				<!--a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
 
 		</a-scene>
 
