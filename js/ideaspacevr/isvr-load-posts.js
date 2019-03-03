@@ -113,9 +113,6 @@ var posts = {
 						wrapper.id = 'post-text-wrapper-' + id + '-' + cid;
 						wrapper.className = 'collidable';
 
-						/* empty object needed, otherwise component is not added */
-						wrapper.setAttribute('isvr-text-nav', {});
-
 						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
@@ -138,6 +135,9 @@ var posts = {
 
 						wrapper.appendChild(text);
 						post.appendChild(wrapper);
+
+						/* empty object needed, otherwise component is not added; add it later, in order to avoid trouble with look-at */
+						wrapper.setAttribute('isvr-text-nav', {});
 
 				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'link') {
 
