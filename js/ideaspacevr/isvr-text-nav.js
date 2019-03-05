@@ -7,6 +7,11 @@ AFRAME.registerComponent('isvr-text-nav', {
 				this.mouseenter_handler = this.mouseenter_handler.bind(this);
 				this.mouseleave_handler = this.mouseleave_handler.bind(this);
 
+				this.touch_start_handler = this.touch_start_handler.bind(this);
+				this.touch_move_handler = this.touch_move_handler.bind(this);
+				this.touch_end_handler = this.touch_end_handler.bind(this);
+				this.touch_cancel_handler = this.touch_cancel_handler.bind(this);
+
 				this.thumbupstart_handler = this.thumbupstart_handler.bind(this);
 				this.thumbupend_handler = this.thumbupend_handler.bind(this);
 				this.thumbdownstart_handler = this.thumbdownstart_handler.bind(this);
@@ -30,6 +35,8 @@ AFRAME.registerComponent('isvr-text-nav', {
 				this.thumbupstart = false;
 				this.thumbdownstart = false;
 				this.last_time = 0;
+				this.touchdown = false;
+				this.previousTouchY = 0;
 
 				this.el.addEventListener('mouseenter', this.mouseenter_handler); 
 				this.el.addEventListener('mouseleave', this.mouseleave_handler); 
@@ -108,6 +115,12 @@ AFRAME.registerComponent('isvr-text-nav', {
 						window.addEventListener('mousewheel', this.mouse_wheel_handler, false);
 						/* Firefox */
 						window.addEventListener('DOMMouseScroll', this.mouse_wheel_handler, false);
+						/* touch devices */
+						var canvasEl = this.el.sceneEl.canvas;
+						canvasEl.addEventListener('touchstart', this.touch_start_handler, false);
+						canvasEl.addEventListener('touchmove', this.touch_move_handler, false);
+						canvasEl.addEventListener('touchend', this.touch_end_handler, false);
+						canvasEl.addEventListener('touchcancel', this.touch_cancel_handler, false);
 
 						window.isvr_text_nav_mw_listenerset = true;
 				}
@@ -138,6 +151,12 @@ AFRAME.registerComponent('isvr-text-nav', {
 						window.removeEventListener('mousewheel', this.mouse_wheel_handler, false);
 						/* Firefox */
 						window.removeEventListener('DOMMouseScroll', this.mouse_wheel_handler, false);
+						/* touch devices */
+						var canvasEl = this.el.sceneEl.canvas;
+						canvasEl.removeEventListener('touchstart', this.touch_start_handler, false);
+						canvasEl.removeEventListener('touchmove', this.touch_move_handler, false);
+						canvasEl.removeEventListener('touchend', this.touch_end_handler, false);
+						canvasEl.removeEventListener('touchcancel', this.touch_cancel_handler, false);
 
 						window.isvr_text_nav_mw_listenerset = false;
 				}
@@ -157,6 +176,51 @@ AFRAME.registerComponent('isvr-text-nav', {
 								}
 						}
 				}
+		},
+
+
+		touch_start_handler: function (e) {
+
+				this.touchdown = true;
+				this.previousTouchY = e.touches[0].screenY;
+		},
+
+
+		touch_move_handler: function (e) {
+
+				if (!this.touchdown) {
+						return;
+				}
+
+				var touch = e.touches[0];
+				var movementY = (touch.screenY - this.previousTouchY) * -1;
+
+				var pos = this.el.getAttribute('position');
+				var height = this.el.getAttribute('height');
+
+				/* top end */
+				if (-((height / 2) - 0.5) < pos.y && Math.sign(movementY) == -1) {
+						this.el.setAttribute('position', { x: pos.x, y: (pos.y - 0.10), z: pos.z });
+				}
+
+				/* bottom end */
+				if (((height / 2) - 0.5) > pos.y && Math.sign(movementY) == 1) {
+						this.el.setAttribute('position', { x: pos.x, y: (pos.y + 0.10), z: pos.z });
+				}
+
+				this.previousTouchY = touch.screenY;
+		},
+
+
+		touch_end_handler: function (e) {
+
+				this.touchdown = false;
+		},
+
+
+		touch_cancel_handler: function (e) {
+
+				this.touchdown = false;
 		},
 
 		
