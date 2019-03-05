@@ -180,22 +180,6 @@
 				@endif
 
 
-				<!--a-circle
-						position="0 -3 0" 
-						segments="64" 
-						radius="1.2" 
-						color="@if (isset($content['general-settings'][0]['about-blog-background-color'])) {{ $content['general-settings'][0]['about-blog-background-color']['#value'] }} @else #FFFFFF @endif" 
-						look-at="0 0 0">	
-						<a-image 
-								src="#windrose" 
-								width="2" 
-								height="2" 
-								rotation="0 0 -90" 
-								position="0 0 0.001">
-						</a-image>
-				</a-circle//-->	
-
-
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
 				<a-entity 
 						id="about-link" 
@@ -260,30 +244,30 @@
 		<div id="textures">
 
 				<div id="navigation-arrow-up-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-up" style="color:#ffffff;font-size:50pt;"></i>
+						<i class="far fa-arrow-alt-circle-up" style="color:#ffffff;font-size:70pt;"></i>
 				</div>
 				<div id="navigation-arrow-up-hover-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-up" style="color:#0080e5;font-size:50pt;"></i>
+						<i class="far fa-arrow-alt-circle-up" style="color:#0080e5;font-size:70pt;"></i>
 				</div>
 				<div id="navigation-arrow-down-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-down" style="color:#ffffff;font-size:50pt;"></i>
+						<i class="far fa-arrow-alt-circle-down" style="color:#ffffff;font-size:70pt;"></i>
 				</div>
 				<div id="navigation-arrow-down-hover-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-down" style="color:#0080e5;font-size:50pt;"></i>
+						<i class="far fa-arrow-alt-circle-down" style="color:#0080e5;font-size:70pt;"></i>
 				</div>
 				<div id="navigation-arrow-up-inactive-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-up" style="color:#3a3a3a;font-size:50pt;"></i>
+						<i class="far fa-arrow-alt-circle-up" style="color:#3a3a3a;font-size:70pt;"></i>
 				</div>
 				<div id="navigation-arrow-down-inactive-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-down" style="color:#3a3a3a;font-size:50pt;"></i>
+						<i class="far fa-arrow-alt-circle-down" style="color:#3a3a3a;font-size:70pt;"></i>
 				</div>
 
 
 				<div id="about-link-texture" class="about-link-texture">
-						<i class="far fa-user-circle" style="color:#3a3a3a;font-size:50pt;"></i>
+						<i class="far fa-user-circle" style="color:#FFFFFF;font-size:70pt;"></i>
 				</div>
 				<div id="about-link-hover-texture" class="about-link-texture">
-						<i class="far fa-user-circle" style="color:#0080e5;font-size:50pt;"></i>
+						<i class="far fa-user-circle" style="color:#0080e5;font-size:70pt;"></i>
 				</div>
 
 

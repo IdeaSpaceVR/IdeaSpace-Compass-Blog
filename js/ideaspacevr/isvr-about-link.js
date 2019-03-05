@@ -32,6 +32,8 @@ AFRAME.registerComponent('isvr-about-link', {
 								document.getElementById('about-wrapper').emit('show-about');
 								document.getElementById('about-wrapper').setAttribute('visible', true);
 
+								document.getElementById('posts-wrapper').setAttribute('visible', false);
+
 						} else {
 
 								document.getElementById('about-wrapper').emit('hide-about');
@@ -60,7 +62,7 @@ AFRAME.registerComponent('isvr-about-link', {
 
 						} else if (e.detail.name == 'animation__show_about') {
 
-								document.getElementById('posts-wrapper').setAttribute('visible', false);
+								//document.getElementById('posts-wrapper').setAttribute('visible', false);
 
 						}
 				});
