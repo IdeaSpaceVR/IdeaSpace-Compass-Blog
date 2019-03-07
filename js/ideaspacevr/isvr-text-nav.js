@@ -72,37 +72,37 @@ AFRAME.registerComponent('isvr-text-nav', {
 
 						this.last_time = time;
 
-				if (this.thumbupstart == true) {
+						if (this.thumbupstart == true) {
 
-						var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
+								var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
 
-						var pos = this.el.getAttribute('position');
-						var height = this.el.getAttribute('height');
+								var pos = this.el.getAttribute('position');
+								var height = this.el.getAttribute('height');
 
-						/* top end */
-						if (-((height / 2) - 0.5) < pos.y) {
-								positionTmp.x = pos.x; 
-								positionTmp.y = (pos.y + this.tcup_delta); 
-								positionTmp.z = pos.z; 
-								this.el.setAttribute('position', positionTmp);
+								/* top end */
+								if (-((height / 2) - 0.5) < pos.y) {
+										positionTmp.x = pos.x; 
+										positionTmp.y = (pos.y + this.tcup_delta); 
+										positionTmp.z = pos.z; 
+										this.el.setAttribute('position', positionTmp);
+								}
 						}
-				}
 
-				if (this.thumbdownstart == true) {
+						if (this.thumbdownstart == true) {
 
-						var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
+								var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
 
-						var pos = this.el.getAttribute('position');
-						var height = this.el.getAttribute('height');
+								var pos = this.el.getAttribute('position');
+								var height = this.el.getAttribute('height');
 
-						/* bottom end */
-						if (((height / 2) - 0.5) > pos.y) {
-								positionTmp.x = pos.x; 
-								positionTmp.y = (pos.y + this.tcdown_delta); 
-								positionTmp.z = pos.z; 
-								this.el.setAttribute('position', positionTmp);
+								/* bottom end */
+								if (((height / 2) - 0.5) > pos.y) {
+										positionTmp.x = pos.x; 
+										positionTmp.y = (pos.y + this.tcdown_delta); 
+										positionTmp.z = pos.z; 
+										this.el.setAttribute('position', positionTmp);
+								}
 						}
-				}
 				}
 		},
 

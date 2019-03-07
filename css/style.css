@@ -187,4 +187,14 @@ margin-top: 10px;
 		padding: 10px;
 }
 
+.blog-post-rotate-texture {
+    width: 512px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+		background-color: transparent;
+		text-align: center;
+		padding: 10px;
+}
 

@@ -50,6 +50,15 @@ AFRAME.registerComponent('isvr-scene', {
 						lcRightEl.setAttribute('thumb-controls', {});
 						wrapper.appendChild(lcRightEl);
 
+
+						var blog_post_rotate_left = document.querySelector('#blog-post-rotate-left');
+						var blog_post_rotate_right = document.querySelector('#blog-post-rotate-right');
+						blog_post_rotate_left.setAttribute('visible', true);
+						blog_post_rotate_right.setAttribute('visible', true);
+						
+
+						document.querySelector('a-scene').emit('added-laser-controls');
+
             document.querySelector('a-scene').addState('entered-vr');
 						
         });
@@ -59,6 +68,11 @@ AFRAME.registerComponent('isvr-scene', {
 						if (self.data.sound != 'none') {
 								self.sound.stop();
 						}
+
+						var blog_post_rotate_left = document.querySelector('#blog-post-rotate-left');
+						var blog_post_rotate_right = document.querySelector('#blog-post-rotate-right');
+						blog_post_rotate_left.setAttribute('visible', false);
+						blog_post_rotate_right.setAttribute('visible', false);
 
             document.querySelector('a-scene').removeState('entered-vr');
 

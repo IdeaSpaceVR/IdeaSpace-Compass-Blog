@@ -313,7 +313,7 @@ var posts = {
 						nav_up.id = 'navigation-arrow-up-' + cid;
 						nav_up.className = 'navigation-arrow-up collidable';
 						nav_up.setAttribute('isvr-blog-post-nav-up', { id: 'navigation-arrow-up-' + cid, cid: cid });
-						nav_up.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_up.setAttribute('geometry', { primitive: 'plane', width: 1, height: 1 });
 						nav_up.setAttribute('position', { x: -1.15, y: 0, z: -0.001 });
 						nav_up.setAttribute('material', { shader: 'html', target: '#navigation-arrow-up-texture', transparent: true, ratio: 'width' });
 
@@ -322,7 +322,7 @@ var posts = {
 						var nav_up = document.createElement('a-entity');			
 						nav_up.id = 'navigation-arrow-up-' + cid;
 						nav_up.className = 'navigation-arrow-up';
-						nav_up.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_up.setAttribute('geometry', { primitive: 'plane', width: 1, height: 1 });
 						nav_up.setAttribute('position', { x: -1.15, y: 0, z: -0.001 });
 						nav_up.setAttribute('material', { shader: 'html', target: '#navigation-arrow-up-inactive-texture', transparent: true, ratio: 'width' });
 
@@ -334,7 +334,7 @@ var posts = {
 						nav_down.id = 'navigation-arrow-down-' + cid;
 						nav_down.className = 'navigation-arrow-down collidable';
 						nav_down.setAttribute('isvr-blog-post-nav-down', { id: 'navigation-arrow-down-' + cid, cid: cid, next_page_url: next_page_url, meters: meters, posts_per_page: posts_per_page, total_posts: total_posts, post_counter: post_counter  });
-						nav_down.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_down.setAttribute('geometry', { primitive: 'plane', width: 1, height: 1 });
 						nav_down.setAttribute('position', { x: 1.15, y: 0, z: -0.001 });
 						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-texture', transparent: true, ratio: 'width' });
 
@@ -343,7 +343,7 @@ var posts = {
 						var nav_down = document.createElement('a-entity');			
 						nav_down.id = 'navigation-arrow-down-' + cid;
 						nav_down.className = 'navigation-arrow-down';
-						nav_down.setAttribute('geometry', { primitive: 'plane', width: 2, height: 2 });
+						nav_down.setAttribute('geometry', { primitive: 'plane', width: 1, height: 1 });
 						nav_down.setAttribute('position', { x: 1.15, y: 0, z: -0.001 });
 						nav_down.setAttribute('material', { shader: 'html', target: '#navigation-arrow-down-inactive-texture', transparent: true, ratio: 'width' });
 

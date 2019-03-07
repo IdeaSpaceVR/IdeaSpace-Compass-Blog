@@ -180,6 +180,26 @@
 				@endif
 
 
+				<a-entity 
+						id="blog-post-rotate-left" 
+						class="blog-post-rotate collidable"
+						visible="false"
+						isvr-blog-post-rotation="dir: left"
+						position="1.5 -1 -0.5"
+						look-at="0 0 0"
+						geometry="primitive: plane; width: 0.5"
+						material="shader: html; target: #blog-post-rotate-left-texture; transparent: true; ratio: width">
+				</a-entity>
+				<a-entity 
+						id="blog-post-rotate-right" 
+						class="blog-post-rotate collidable"
+						visible="false"
+						isvr-blog-post-rotation="dir: right"
+						position="1.5 -1 0.5"
+						look-at="0 0 0"
+						geometry="primitive: plane; width: 0.5"
+						material="shader: html; target: #blog-post-rotate-right-texture; transparent: true; ratio: width">
+				</a-entity>
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
 				<a-entity 
 						id="about-link" 
@@ -187,7 +207,7 @@
 						isvr-about-link
 						position="1.5 -1 0"
 						look-at="0 0 0"
-						geometry="primitive: plane; width: 1.2"
+						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
 				</a-entity>
 				<a-rounded
@@ -232,7 +252,7 @@
 				<a-entity class="laser-controls-wrapper" @if (!is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
 				</a-entity>
 
-				<!--a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
+				<a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity>
 
 		</a-scene>
 
@@ -244,30 +264,44 @@
 		<div id="textures">
 
 				<div id="navigation-arrow-up-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-up" style="color:#ffffff;font-size:70pt;"></i>
+						<i class="far fa-arrow-alt-circle-up" style="color:#ffffff;font-size:150pt;"></i>
 				</div>
 				<div id="navigation-arrow-up-hover-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-up" style="color:#0080e5;font-size:70pt;"></i>
+						<i class="far fa-arrow-alt-circle-up" style="color:#0080e5;font-size:150pt;"></i>
 				</div>
 				<div id="navigation-arrow-down-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-down" style="color:#ffffff;font-size:70pt;"></i>
+						<i class="far fa-arrow-alt-circle-down" style="color:#ffffff;font-size:150pt;"></i>
 				</div>
 				<div id="navigation-arrow-down-hover-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-down" style="color:#0080e5;font-size:70pt;"></i>
+						<i class="far fa-arrow-alt-circle-down" style="color:#0080e5;font-size:150pt;"></i>
 				</div>
 				<div id="navigation-arrow-up-inactive-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-up" style="color:#3a3a3a;font-size:70pt;"></i>
+						<i class="far fa-arrow-alt-circle-up" style="color:#3a3a3a;font-size:150pt;"></i>
 				</div>
 				<div id="navigation-arrow-down-inactive-texture" class="navigation-arrow-texture">
-						<i class="far fa-arrow-alt-circle-down" style="color:#3a3a3a;font-size:70pt;"></i>
+						<i class="far fa-arrow-alt-circle-down" style="color:#3a3a3a;font-size:150pt;"></i>
+				</div>
+
+
+				<div id="blog-post-rotate-left-texture" class="blog-post-rotate-texture">
+						<i class="far fa-arrow-alt-circle-left" style="color:#FFFFFF;font-size:150pt;"></i>
+				</div>
+				<div id="blog-post-rotate-left-hover-texture" class="blog-post-rotate-texture">
+						<i class="far fa-arrow-alt-circle-left" style="color:#0080e5;font-size:150pt;"></i>
+				</div>
+				<div id="blog-post-rotate-right-texture" class="blog-post-rotate-texture">
+						<i class="far fa-arrow-alt-circle-right" style="color:#FFFFFF;font-size:150pt;"></i>
+				</div>
+				<div id="blog-post-rotate-right-hover-texture" class="blog-post-rotate-texture">
+						<i class="far fa-arrow-alt-circle-right" style="color:#0080e5;font-size:150pt;"></i>
 				</div>
 
 
 				<div id="about-link-texture" class="about-link-texture">
-						<i class="far fa-user-circle" style="color:#FFFFFF;font-size:70pt;"></i>
+						<i class="far fa-user-circle" style="color:#FFFFFF;font-size:150pt;"></i>
 				</div>
 				<div id="about-link-hover-texture" class="about-link-texture">
-						<i class="far fa-user-circle" style="color:#0080e5;font-size:70pt;"></i>
+						<i class="far fa-user-circle" style="color:#0080e5;font-size:150pt;"></i>
 				</div>
 
 
