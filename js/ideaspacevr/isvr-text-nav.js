@@ -23,7 +23,7 @@ AFRAME.registerComponent('isvr-text-nav', {
 
 				this.bindMethods();
 
-				/* top end position for text boxes higher than 3 */
+				/* set top end position for text boxes higher than 3 */
 				var offset = 0;
 				if ((this.el.getAttribute('height') / 2) > 3) {
 						offset = -(this.el.getAttribute('height') / 2) + 1;

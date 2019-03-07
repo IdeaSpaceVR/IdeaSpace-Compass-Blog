@@ -45,6 +45,7 @@ document.fonts.onloadingdone = function(fontFaceSetEvent) {
 		document.querySelector('#about').components.material.shader.__render();
 		document.querySelector('#about-link').components.material.shader.__render();
 
+
 		var blog_post_rotate_all = document.querySelectorAll('.blog-post-rotate');
 		for (var i = 0; i < blog_post_rotate_all.length; i++) {
 				/* workaround to refresh texture, otherwise it is not appearing on first loading of page */

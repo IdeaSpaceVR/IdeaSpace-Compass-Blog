@@ -42,6 +42,8 @@ AFRAME.registerComponent('isvr-blog-post-nav-down', {
 
 				this.el.addEventListener('click', function() {
 
+						document.querySelector('#posts-wrapper').setAttribute('rotation', { x: 0, y: 0, z: 0 });
+
 						// 1, 4, 7, 10, 13
 						if (self.data.post_counter == 1 || self.data.post_counter == (prev_post_counter + 3)) {
 
