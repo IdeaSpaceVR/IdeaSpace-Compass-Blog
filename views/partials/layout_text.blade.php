@@ -6,7 +6,6 @@
     color="{{ $blog_post['post-text-image-background-color-' . $id]['#value'] }}"
     width="2"
     height="3"
-		isvr-text-nav
     top-left-radius="0.06"
     top-right-radius="0.06"
     bottom-left-radius="0.06"

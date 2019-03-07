@@ -6,6 +6,7 @@ for (var i = 0; i < post_text_{{ $_id }}_textures.length; i++) {
 		var post_text_wrapper_{{ $_id }} = document.getElementById('post-text-wrapper-{{ $id }}-' + post_text_{{ $_id }}_textures[i].dataset.cid);
 		var height_meters = (post_text_{{ $_id }}_textures[i].offsetHeight * post_text_wrapper_{{ $_id }}.getAttribute('width')) / post_text_{{ $_id }}_textures[i].offsetWidth;
 		post_text_wrapper_{{ $_id }}.setAttribute('height', height_meters);
+		post_text_wrapper_{{ $_id }}.setAttribute('isvr-text-nav', {});
 }
 
 var post_image_{{ $_id }}_textures = document.querySelectorAll('.post-image-{{ $id }}-texture');
