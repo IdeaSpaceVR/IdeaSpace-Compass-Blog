@@ -179,6 +179,23 @@
 
 				@endif
 
+				
+				<a-circle
+						id="windrose-wrapper" 
+						position="0 -3 0" 
+						segments="64" 
+						radius="1.2" 
+						color="@if (isset($content['general-settings'][0]['about-blog-background-color'])) {{ $content['general-settings'][0]['about-blog-background-color']['#value'] }} @else #FFFFFF @endif" 
+						look-at="0 0 0">	
+						<a-image 
+								src="#windrose" 
+								width="2" 
+								height="2" 
+								rotation="0 0 -90" 
+								position="0 0 0.001">
+						</a-image>
+				</a-circle>	
+
 
 				<a-entity 
 						id="blog-post-rotate-left" 
@@ -252,7 +269,7 @@
 				<a-entity class="laser-controls-wrapper" @if (!is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
 				</a-entity>
 
-				<a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity>
+				<!--a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
 
 		</a-scene>
 

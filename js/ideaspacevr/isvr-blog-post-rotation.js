@@ -96,29 +96,22 @@ AFRAME.registerComponent('isvr-blog-post-rotation', {
 
 								this.last_time = time;
 
+								var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
+								var rotation = this.posts.getAttribute('rotation');
+
 								if (this.data.dir == 'left') {
-
-										var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
-										var rotation = this.posts.getAttribute('rotation');
-
 										rotationTmp.x = rotation.x; 
 										rotationTmp.y = (rotation.y + this.rotation_delta); 
 										rotationTmp.z = rotation.z; 
-
-										this.posts.setAttribute('rotation', rotationTmp);
 								}
 
 								if (this.data.dir == 'right') {
-
-										var rotationTmp = this.rotationTmp = this.rotationTmp || {x: 0, y: 0, z: 0};
-										var rotation = this.posts.getAttribute('rotation');
-
 										rotationTmp.x = rotation.x; 
 										rotationTmp.y = (rotation.y - this.rotation_delta); 
 										rotationTmp.z = rotation.z; 
-
-										this.posts.setAttribute('rotation', rotationTmp);
 								}
+
+								this.posts.setAttribute('rotation', rotationTmp);
 						}
 				}
 		},
