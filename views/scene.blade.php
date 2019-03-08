@@ -253,6 +253,16 @@
 				@endif
 
 
+				<a-entity 
+						id="ideaspacevr" 
+						class="collidable"
+						position="1.5 -1.3 0"
+						look-at="0 0 0"
+						geometry="primitive: plane; width: 1.2"
+						material="shader: html; target: #ideaspacevr-texture; transparent: true; ratio: width">
+				</a-entity>
+
+
 				<a-entity id="camera-wrapper" @if (!is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
 						<a-entity camera look-controls>
 								<a-entity
@@ -322,6 +332,11 @@
 				</div>
 
 
+				<div id="ideaspacevr-texture">
+				IdeaSpace Compass Blog theme<br>by IdeaSpaceVR
+				</div>
+
+
 				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
 						<div id="about-texture">
 								@if (isset($content['general-settings'][0]['blog-about']))
@@ -339,15 +354,12 @@
         @foreach ($content['blog-posts'] as $blog_post)
 						@if ($post_counter < $max_posts)
 								@php
-								//$d = new DateTime($blog_post['post-date']['#value']);
-								//$date_formatted = $d->format('d F Y');
 								$cid = $blog_post['post-title-north']['#content-id'];
 								@endphp
 
 								<div id="post-title-texture-{{ $cid }}" data-cid="{{ $cid }}" class="post-title-texture">
 										{!! $blog_post['post-title-north']['#value'] !!} 
 										<p>&nbsp;</p>
-										<!--p><span style="font-family: arial, helvetica, sans-serif; font-size: 20pt; color: #ffffff;">@php /*$date_formatted*/ @endphp</span></p//-->
 								</div>
 
 								@include('theme::partials.text_image_link_texture', ['id' => 'north-east', 'cid' => $cid])

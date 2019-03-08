@@ -44,7 +44,7 @@
     <script src="{{ url($theme_dir . '/js/a-painter-loader-component/ground.js') }}"></script//-->
     <script src="{{ url($theme_dir . '/js/aframe-look-at-component/aframe-look-at-component.min.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/howler/howler.min.js') }}"></script>
-<script src="{{ url($theme_dir . '/js/aframe-log-component.min.js') }}"></script>
+		<!--script src="{{ url($theme_dir . '/js/aframe-log-component.min.js') }}"></script//-->
 
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-helpers.js') }}"></script>
 		<script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-text-nav.js') }}"></script>		
