@@ -72,7 +72,7 @@ AFRAME.registerComponent('isvr-text-nav', {
 
 						this.last_time = time;
 
-						if (this.thumbupstart == true) {
+						if (this.thumbupstart == true && this.thumbdownstart == false) {
 
 								var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
 
@@ -88,7 +88,7 @@ AFRAME.registerComponent('isvr-text-nav', {
 								}
 						}
 
-						if (this.thumbdownstart == true) {
+						if (this.thumbdownstart == true && this.thumbupstart == false) {
 
 								var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
 
