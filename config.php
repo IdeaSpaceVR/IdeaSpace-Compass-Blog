@@ -95,7 +95,7 @@ return [
 
 
     'blog-posts' => [
-      '#label' => 'Blog Posts',
+      '#label' => 'Blog Post',
       '#description' => 'Manage your blog posts.',
       '#max-values' => 'infinite',
       '#field-groups' => [
@@ -128,7 +128,7 @@ return [
 							'help' => 'Create content for the direction North West.'
 					]
 			],
-//      '#content-type-view' => 'blog-post', // TEST
+
       '#fields' => [
 
 				'post-title-north' => [
@@ -643,6 +643,15 @@ return [
 					'#default_value' => '#FFFFFF',
           '#required' => true,
           '#field-group' => 'north-west',
+        ],
+
+				'post-painter' => [
+          '#label' => 'Paint on your post',
+          '#description' => 'Paint on your post.',
+          '#help' => 'Make your post special by adding some paint to it.',
+          '#type' => 'painter',
+          '#scene-template' => 'scene',
+          '#required' => false,
         ],
 
       ], /* fields */
