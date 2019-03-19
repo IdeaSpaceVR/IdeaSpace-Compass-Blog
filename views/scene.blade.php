@@ -402,7 +402,6 @@
 						@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
 								@include('theme::partials.wrapper_about_border_script')
 						@endif
-
 				});
     })();
     </script>

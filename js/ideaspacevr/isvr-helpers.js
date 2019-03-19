@@ -1,6 +1,6 @@
 function ready (callback) {
 
-    if (document.readyState != 'loading') {
+    if (document.readyState !== 'loading') {
 
         // in case the document is already rendered
         callback();

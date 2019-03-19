@@ -51,6 +51,10 @@ document.fonts.onloadingdone = function(fontFaceSetEvent) {
 				/* workaround to refresh texture, otherwise it is not appearing on first loading of page */
 				blog_post_rotate_all[i].components.material.shader.__render();
 		}
+
+
+		document.querySelector('#ideaspacevr').components.material.shader.__render();		
+		
 }
 
 
