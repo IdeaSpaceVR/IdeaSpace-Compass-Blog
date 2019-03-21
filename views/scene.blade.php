@@ -263,7 +263,7 @@
 				</a-entity>
 
 
-				<a-entity id="camera-wrapper" @if (!is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
+				<a-entity id="camera-wrapper" @if (isset($positions) && !is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
 						<a-entity camera look-controls>
 								<a-entity
                     cursor="fuse: false; rayOrigin: mouse"
@@ -276,7 +276,7 @@
 				</a-entity>
 
 
-				<a-entity class="laser-controls-wrapper" @if (!is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
+				<a-entity class="laser-controls-wrapper" @if (isset($positions) && !is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
 				</a-entity>
 
 				<!--a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
