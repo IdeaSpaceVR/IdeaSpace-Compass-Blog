@@ -6,7 +6,7 @@ return [
   '#theme-key' => 'ideaspace-compass-blog',
   '#theme-version' => '1.0',
   '#ideaspace-version' => '>=1.2.0',
-  '#theme-description' => 'Immerse yourself in blog posts.',
+  '#theme-description' => 'theme.theme_description',
   '#theme-author-name' => 'IdeaSpaceVR',
   '#theme-author-email' => 'info@ideaspacevr.org',
   '#theme-homepage' => 'https://www.ideaspacevr.org/themes',
@@ -16,15 +16,15 @@ return [
   '#content-types' => [
 
     'general-settings' => [
-      '#label' => 'General Settings',
-      '#description' => 'Configure your theme.',
+      '#label' => 'label.general_settings',
+      '#description' => 'description.configure_your_space',
       '#max-values' => 1,
       '#fields' => [
 
         'blog-icon' => [
-          '#label' => 'Blog Icon',
-          '#description' => 'Add an icon which represents your blog.',
-          '#help' => 'Add an image.',
+          '#label' => 'label.blog_icon',
+          '#description' => 'description.add_icon_which_represents_your_blog',
+          '#help' => 'help.add_an_image',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -32,9 +32,9 @@ return [
         ],
 
         'blog-about' => [
-          '#label' => 'About Your Blog',
-          '#description' => 'What is your blog about?',
-          '#help' => 'Enter a text.',
+          '#label' => 'label.about_your_blog',
+          '#description' => 'description.what_blog_about',
+          '#help' => 'help.enter_text',
           '#type' => 'textarea',
 					'#rows' => 10,
 					'#contentformat' => 'html/text',
@@ -43,48 +43,48 @@ return [
         ],
 
         'about-blog-background-color' => [
-          '#label' => 'About Your Blog Background Color',
-          '#description' => 'Select a background color.',
-          '#help' => 'Select a background color.',
+          '#label' => 'label.about_your_blog_background_color',
+          '#description' => 'description.select_background_color',
+          '#help' => 'help.select_background_color',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => false,
         ],
 
         'blog-audio' => [
-          '#label' => 'Sound',
-          '#description' => 'Add background sound to your blog.',
-          '#help' => 'Add background sound to your post. Piano by <a href="https://freesound.org/people/ShadyDave/sounds/262259/" target="_blank">ShadyDave</a>. License: <a href="https://creativecommons.org/licenses/by-nc/3.0/" target="_blank">Creative Commons</a>',
+          '#label' => 'label.sound',
+          '#description' => 'description.add_background_sound',
+          '#help' => 'help.add_background_sound',
           '#type' => 'options-select',
-          '#options' => ['birds-0' => 'Birds', 'piano-0' => 'Piano'],
+          '#options' => ['birds-0' => 'options.birds', 'piano-0' => 'options.piano'],
           '#required' => false,
         ],
 
 				'sky' => [
-          '#label' => 'Sky Type',
-          '#description' => 'Set the type of the sky.',
-          '#help' => 'Set the type of the sky.',
+          '#label' => 'label.sky_type',
+          '#description' => 'description.set_type_of_sky',
+          '#help' => 'help.set_type_of_sky',
           '#type' => 'options-select',
-          '#options' => ['black' => 'Black Sky', 'stars' => 'Black Sky With Stars'],
+          '#options' => ['black' => 'options.black_sky', 'stars' => 'options.black_sky_with_stars'],
           '#required' => true,
           '#default_value' => 'black',
         ],
 
         'sky-stars-color' => [
-          '#label' => 'Sky Stars Color',
-          '#description' => 'Set the color of the stars.',
-          '#help' => 'Set the color of the stars.',
+          '#label' => 'label.sky_stars_color',
+          '#description' => 'description.set_color_of_stars',
+          '#help' => 'help.set_color_of_stars',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => false,
         ],
 
 				'antialiasing' => [
-          '#label' => 'Antialiasing',
-          '#description' => 'Set antialiasing.',
-          '#help' => 'Mobile VR headsets may need to have antialiasing set to off (for performance reasons).',
+          '#label' => 'label.antialiasing',
+          '#description' => 'description.set_antialiasing',
+          '#help' => 'help.mobile_vr_headsets_note',
           '#type' => 'options-select',
-          '#options' => ['off' => 'Off', 'on' => 'On'],
+          '#options' => ['off' => 'options.off', 'on' => 'options.on'],
           '#required' => true,
           '#default_value' => 'on',
         ],
@@ -95,37 +95,37 @@ return [
 
 
     'blog-posts' => [
-      '#label' => 'Blog Post',
-      '#description' => 'Manage your blog posts.',
+      '#label' => 'label.blog_post',
+      '#description' => 'description.manage_your_blog_posts',
       '#max-values' => 'infinite',
       '#field-groups' => [
 					'north-east' => [
-							'title' => 'North East', 
-							'help' => 'Create content for the direction North East.'
+							'title' => 'title.north_east', 
+							'help' => 'help.create_content_direction_north_east'
 					], 
 					'east' => [
-							'title' => 'East',
-							'help' => 'Create content for the direction East.',
+							'title' => 'title.east',
+							'help' => 'help.create_content_direction_east',
 					], 
 					'south-east' => [
-							'title' => 'South East',
-							'help' => 'Create content for the direction South East.'
+							'title' => 'title.south_east',
+							'help' => 'help.create_content_direction_south_east'
 					], 
 					'south' => [
-							'title' => 'South',
-							'help' => 'Create content for the direction South.',
+							'title' => 'title.south',
+							'help' => 'help.create_content_direction_south',
 					], 
 					'south-west' => [
-							'title' => 'South West',
-							'help' => 'Create content for the direction South West.',
+							'title' => 'title.south_west',
+							'help' => 'help.create_content_direction_south_west',
 					], 
 					'west' => [
-							'title' => 'West',
-							'help' => 'Create content for the direction West.',
+							'title' => 'title.west',
+							'help' => 'help.create_content_direction_west',
 					], 
 					'north-west' => [
-							'title' => 'North West',
-							'help' => 'Create content for the direction North West.'
+							'title' => 'title.north_west',
+							'help' => 'help.create_content_direction_north_west'
 					]
 			],
 
@@ -650,7 +650,7 @@ return [
           '#description' => 'Paint on your post.',
           '#help' => 'Make your post special by adding some paint to it.',
           '#type' => 'painter',
-          '#scene-template' => 'scene',
+          '#scene-template' => 'scene-painter',
           '#required' => false,
         ],
 
