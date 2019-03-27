@@ -11,5 +11,8 @@ return [
     'set_color_of_stars' => 'Set the color of the stars.',
     'set_antialiasing' => 'Set antialiasing.',
     'manage_your_blog_posts' => 'Manage your blog posts.',
+    'write_some_text' => 'Write some text.',
+    'select_media_type' => 'Select media type.',
+    'add_an_image' => 'Add an image.',
 
 ];

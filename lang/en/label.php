@@ -11,5 +11,9 @@ return [
     'sky_stars_color' => 'Sky Stars Color',
     'antialiasing' => 'Antialiasing',
     'blog_post' => 'Blog Post',
+    'title' => 'Title',
+    'display' => 'Display',
+    'text' => 'Text',
+    'image' => 'Image',
 
 ];

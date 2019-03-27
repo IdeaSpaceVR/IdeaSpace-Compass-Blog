@@ -132,9 +132,9 @@ return [
       '#fields' => [
 
 				'post-title-north' => [
-          '#label' => 'Title',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.title',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textarea',
           '#maxlength' => 1000,
           '#rows' => 10,
@@ -143,25 +143,25 @@ return [
         ],
 
         'post-display-north-east' => [
-          '#label' => 'Display',
-          '#description' => 'Select media type.',
-          '#help' => 'Select media type.',
+          '#label' => 'label.display',
+          '#description' => 'description.select_media_type',
+          '#help' => 'help.select_media_type',
           '#type' => 'options-select',
           '#required' => false,
           '#options' => [
-							'none' => 'None',
-							'text' => 'Text',
-							'image' => 'Image',
-							'link' => 'Link',
+							'none' => 'options.none',
+							'text' => 'options.text',
+							'image' => 'options.image',
+							'link' => 'options.link',
 					],
           '#default_value' => 'none',
           '#field-group' => 'north-east',
         ],
 
 				'post-text-north-east' => [
-          '#label' => 'Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textarea',
           '#maxlength' => 20000,
           '#rows' => 10,
@@ -171,9 +171,9 @@ return [
         ],
 
         'post-image-north-east' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
+          '#label' => 'label.image',
+          '#description' => 'description.add_an_image',
+          '#help' => 'help.add_an_image',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],

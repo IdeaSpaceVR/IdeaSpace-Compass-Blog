@@ -16,5 +16,8 @@ return [
 		'create_content_direction_south_west' => 'Create content for the direction South West.',
 		'create_content_direction_west' => 'Create content for the direction West.',
 		'create_content_direction_north_west' => 'Create content for the direction North West.',
+		'write_some_text' => 'Write some text.',
+		'select_media_type' => 'Select media type.',
+		'add_an_image' => 'Add an image.',
 
 ];
