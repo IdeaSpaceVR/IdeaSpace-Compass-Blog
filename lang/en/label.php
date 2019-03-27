@@ -15,5 +15,8 @@ return [
     'display' => 'Display',
     'text' => 'Text',
     'image' => 'Image',
+    'link_url' => 'Link URL',
+    'link_description_text' => 'Link Description Text',
+    'background_color' => 'Background Color',
 
 ];

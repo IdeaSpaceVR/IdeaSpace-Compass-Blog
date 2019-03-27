@@ -182,9 +182,9 @@ return [
         ],
 
 				'post-link-north-east' => [
-          '#label' => 'Link URL',
-          '#description' => 'Enter an URL',
-          '#help' => 'Enter an URL.',
+          '#label' => 'label.link_url',
+          '#description' => 'description.enter_an_url',
+          '#help' => 'help.enter_an_url',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 1000,
@@ -193,9 +193,9 @@ return [
         ],
 
 				'post-link-text-north-east' => [
-          '#label' => 'Link Description Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.link_description_text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 65,
@@ -204,9 +204,9 @@ return [
         ],
 
         'post-text-image-background-color-north-east' => [
-          '#label' => 'Background Color',
-          '#description' => 'Select a background color.',
-          '#help' => 'Select a background color.',
+          '#label' => 'label.background_color',
+          '#description' => 'description.select_background_color',
+          '#help' => 'help.select_background_color',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => true,
@@ -215,25 +215,25 @@ return [
 
 
         'post-display-east' => [
-          '#label' => 'Display',
-          '#description' => 'Select media type.',
-          '#help' => 'Select media type.',
+          '#label' => 'label.display',
+          '#description' => 'description.select_media_type',
+          '#help' => 'help.select_media_type',
           '#type' => 'options-select',
           '#required' => false,
           '#options' => [
-							'none' => 'None',
-							'text' => 'Text',
-							'image' => 'Image',
-							'link' => 'Link',
+							'none' => 'options.none',
+							'text' => 'options.text',
+							'image' => 'options.image',
+							'link' => 'options.link',
 					],
           '#default_value' => 'none',
           '#field-group' => 'east',
         ],
 
 				'post-text-east' => [
-          '#label' => 'Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
@@ -243,9 +243,9 @@ return [
         ],
 
         'post-image-east' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
+          '#label' => 'label.image',
+          '#description' => 'description.add_an_image',
+          '#help' => 'help.add_an_image',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
