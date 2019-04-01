@@ -18,5 +18,6 @@ return [
     'link_url' => 'Link URL',
     'link_description_text' => 'Link Description Text',
     'background_color' => 'Background Color',
+    'paint_on_post' => 'Paint on your post',
 
 ];

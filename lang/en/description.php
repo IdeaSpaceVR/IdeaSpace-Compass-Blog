@@ -15,5 +15,6 @@ return [
     'select_media_type' => 'Select media type.',
     'add_an_image' => 'Add an image.',
     'enter_an_url' => 'Enter an URL',
+		'paint_on_post' => 'Paint on your post.',
 
 ];

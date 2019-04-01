@@ -375,7 +375,7 @@ return [
         ],
 
 				'post-text-south' => [
-          '#label' => 'labe.text',
+          '#label' => 'label.text',
           '#description' => 'description.write_some_text',
           '#help' => 'help.write_some_text',
           '#type' => 'textarea',
@@ -409,9 +409,9 @@ return [
         ],
 
 				'post-link-text-south' => [
-          '#label' => 'Link Description Text',
+          '#label' => 'label.link_description_text',
           '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#help' => 'help.write_some_text',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 65,
@@ -420,9 +420,9 @@ return [
         ],
 
         'post-text-image-background-color-south' => [
-          '#label' => 'Background Color',
-          '#description' => 'Select a background color.',
-          '#help' => 'Select a background color.',
+          '#label' => 'label.background_color',
+          '#description' => 'description.select_background_color',
+          '#help' => 'help.select_background_color',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => true,
@@ -431,25 +431,25 @@ return [
 
 
         'post-display-south-west' => [
-          '#label' => 'Display',
-          '#description' => 'Select media type.',
-          '#help' => 'Select media type.',
+          '#label' => 'label.display',
+          '#description' => 'description.select_media_type',
+          '#help' => 'help.select_media_type',
           '#type' => 'options-select',
           '#required' => false,
           '#options' => [
-							'none' => 'None',
-							'text' => 'Text',
-							'image' => 'Image',
-							'link' => 'Link',
+							'none' => 'options.none',
+							'text' => 'options.text',
+							'image' => 'options.image',
+							'link' => 'options.link',
 					],
           '#default_value' => 'none',
           '#field-group' => 'south-west',
         ],
 
 				'post-text-south-west' => [
-          '#label' => 'Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
@@ -459,9 +459,9 @@ return [
         ],
 
         'post-image-south-west' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
+          '#label' => 'label.image',
+          '#description' => 'description.add_an_image',
+          '#help' => 'help.add_an_image',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -470,9 +470,9 @@ return [
         ],
 
 				'post-link-south-west' => [
-          '#label' => 'Link URL',
-          '#description' => 'Enter an URL',
-          '#help' => 'Enter an URL.',
+          '#label' => 'label.link_url',
+          '#description' => 'description.enter_an_url',
+          '#help' => 'help.enter_an_url',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 1000,
@@ -481,9 +481,9 @@ return [
         ],
 
 				'post-link-text-south-west' => [
-          '#label' => 'Link Description Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.link_description_text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 65,
@@ -492,9 +492,9 @@ return [
         ],
 
         'post-text-image-background-color-south-west' => [
-          '#label' => 'Background Color',
-          '#description' => 'Select a background color.',
-          '#help' => 'Select a background color.',
+          '#label' => 'label.background_color',
+          '#description' => 'description.select_background_color',
+          '#help' => 'help.select_background_color',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => true,
@@ -503,25 +503,25 @@ return [
 
 
         'post-display-west' => [
-          '#label' => 'Display',
-          '#description' => 'Select media type.',
-          '#help' => 'Select media type.',
+          '#label' => 'label.display',
+          '#description' => 'description.select_media_type',
+          '#help' => 'help.select_media_type',
           '#type' => 'options-select',
           '#required' => false,
           '#options' => [
-							'none' => 'None',
-							'text' => 'Text',
-							'image' => 'Image',
-							'link' => 'Link',
+							'none' => 'options.none',
+							'text' => 'options.text',
+							'image' => 'options.image',
+							'link' => 'options.link',
 					],
           '#default_value' => 'none',
           '#field-group' => 'west',
         ],
 
 				'post-text-west' => [
-          '#label' => 'Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
@@ -531,9 +531,9 @@ return [
         ],
 
         'post-image-west' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
+          '#label' => 'label.image',
+          '#description' => 'description.add_an_image',
+          '#help' => 'help.add_an_image',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -542,9 +542,9 @@ return [
         ],
 
 				'post-link-west' => [
-          '#label' => 'Link URL',
-          '#description' => 'Enter an URL',
-          '#help' => 'Enter an URL.',
+          '#label' => 'label.link_url',
+          '#description' => 'description.enter_an_url',
+          '#help' => 'help.enter_an_url',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 1000,
@@ -553,9 +553,9 @@ return [
         ],
 
 				'post-link-text-west' => [
-          '#label' => 'Link Description Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.link_description_text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 65,
@@ -564,9 +564,9 @@ return [
         ],
 
         'post-text-image-background-color-west' => [
-          '#label' => 'Background Color',
-          '#description' => 'Select a background color.',
-          '#help' => 'Select a background color.',
+          '#label' => 'label.background_color',
+          '#description' => 'description.select_background_color',
+          '#help' => 'help.select_background_color',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => true,
@@ -575,25 +575,25 @@ return [
 
 
         'post-display-north-west' => [
-          '#label' => 'Display',
-          '#description' => 'Select media type.',
-          '#help' => 'Select media type.',
+          '#label' => 'label.display',
+          '#description' => 'description.select_media_type',
+          '#help' => 'help.select_media_type',
           '#type' => 'options-select',
           '#required' => false,
           '#options' => [
-							'none' => 'None',
-							'text' => 'Text',
-							'image' => 'Image',
-							'link' => 'Link',
+							'none' => 'options.none',
+							'text' => 'options.text',
+							'image' => 'options.image',
+							'link' => 'options.link',
 					],
           '#default_value' => 'none',
           '#field-group' => 'north-west',
         ],
 
 				'post-text-north-west' => [
-          '#label' => 'Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textarea',
           '#rows' => 10,
           '#maxlength' => 20000,
@@ -603,9 +603,9 @@ return [
         ],
 
         'post-image-north-west' => [
-          '#label' => 'Image',
-          '#description' => 'Add an image.',
-          '#help' => 'Add an image.',
+          '#label' => 'label.image',
+          '#description' => 'description.add_an_image',
+          '#help' => 'help.add_an_image',
           '#type' => 'image',
 					'#content-preview-image' => true,
           '#file-extension' => ['jpg', 'png', 'gif'],
@@ -614,9 +614,9 @@ return [
         ],
 
 				'post-link-north-west' => [
-          '#label' => 'Link URL',
-          '#description' => 'Enter an URL',
-          '#help' => 'Enter an URL.',
+          '#label' => 'label.link_url',
+          '#description' => 'description.enter_an_url',
+          '#help' => 'help.enter_an_url',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 1000,
@@ -625,9 +625,9 @@ return [
         ],
 
 				'post-link-text-north-west' => [
-          '#label' => 'Link Description Text',
-          '#description' => 'Write some text.',
-          '#help' => 'Write some text.',
+          '#label' => 'label.link_description_text',
+          '#description' => 'description.write_some_text',
+          '#help' => 'help.write_some_text',
           '#type' => 'textfield',
           '#contentformat' => 'text',
           '#maxlength' => 65,
@@ -636,9 +636,9 @@ return [
         ],
 
         'post-text-image-background-color-north-west' => [
-          '#label' => 'Background Color',
-          '#description' => 'Select a background color.',
-          '#help' => 'Select a background color.',
+          '#label' => 'label.background_color',
+          '#description' => 'description.select_background_color',
+          '#help' => 'help.select_background_color',
           '#type' => 'color',
 					'#default_value' => '#FFFFFF',
           '#required' => true,
@@ -646,9 +646,9 @@ return [
         ],
 
 				'post-painter' => [
-          '#label' => 'Paint on your post',
-          '#description' => 'Paint on your post.',
-          '#help' => 'Make your post special by adding some paint to it.',
+          '#label' => 'label.paint_on_post',
+          '#description' => 'description.paint_on_post',
+          '#help' => 'help.painter_help',
           '#type' => 'painter',
           '#scene-template' => 'scene-painter',
           '#required' => false,

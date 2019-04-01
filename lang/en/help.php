@@ -20,5 +20,6 @@ return [
 		'select_media_type' => 'Select media type.',
 		'add_an_image' => 'Add an image.',
 		'enter_an_url' => 'Enter an URL.',
+		'painter_help' => 'Make your post special by adding some paint to it.',
 
 ];
