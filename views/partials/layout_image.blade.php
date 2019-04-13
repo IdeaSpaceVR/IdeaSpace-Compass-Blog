@@ -2,7 +2,7 @@
 <a-rounded
     id="post-image-wrapper-{{ $id }}-{{ $blog_post['post-image-' . $id]['#content-id'] }}"
     position="{{ $position['x'] }} 0 {{ $position['z'] }}"
-    look-at="0 0 0"
+    look-at="#camera-wrapper"
     color="{{ $blog_post['post-text-image-background-color-' . $id]['#value'] }}"
     width="2"
     height="3"

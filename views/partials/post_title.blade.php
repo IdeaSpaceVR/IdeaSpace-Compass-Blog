@@ -4,7 +4,7 @@
 		data-cid="{{ $blog_post['post-title-north']['#content-id'] }}"
 		geometry="primitive: plane; width: 2"
 		position="{{ $position['x'] }} 0 {{ $position['z'] }}" 
-		look-at="0 0 0"
+		look-at="#camera-wrapper"
 		material="shader: html; target: #post-title-texture-{{ $blog_post['post-title-north']['#content-id'] }}; transparent: true; ratio: width">
 		@if ($post_counter > 0)
 		<a-entity

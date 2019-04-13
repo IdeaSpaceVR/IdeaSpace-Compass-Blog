@@ -42,8 +42,10 @@ document.fonts.onloadingdone = function(fontFaceSetEvent) {
 				}
 		}*/
 		/* update html shader material, even if font color is not changed */
-		document.querySelector('#about').components.material.shader.__render();
-		document.querySelector('#about-link').components.material.shader.__render();
+		if (document.querySelector('#about') != null) {
+				document.querySelector('#about').components.material.shader.__render();
+				document.querySelector('#about-link').components.material.shader.__render();
+		}
 
 
 		var blog_post_rotate_all = document.querySelectorAll('.blog-post-rotate');

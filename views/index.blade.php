@@ -33,12 +33,12 @@
     }
     @endphp
 
-    <script src="{{ url($theme_dir . '/js/aframe/aframe-v0.8.2.min.js') }}"></script>
+    <script src="{{ url($theme_dir . '/js/aframe/aframe-master.min.js') }}"></script>
 		<script src="{{ url($theme_dir . '/js/aframe-star-system-component/aframe-star-system-component.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/aframe-html-shader/aframe-html-shader.min.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/aframe-gif-shader/aframe-gif-shader.min.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/aframe-rounded-component/aframe-rounded-component.min.js') }}"></script>
-    <script src="{{ url($theme_dir . '/js/aframe-animation/aframe-animation-component.min.js') }}"></script>
+    <!--script src="{{ url($theme_dir . '/js/aframe-animation/aframe-animation-component.min.js') }}"></script//-->
     <script src="{{ url($theme_dir . '/js/aframe-thumb-controls/aframe-thumb-controls-component.min.js') }}"></script>
     <!--script src="{{ url($theme_dir . '/js/a-painter-loader-component/a-painter-loader-component.min.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/a-painter-loader-component/ground.js') }}"></script//-->

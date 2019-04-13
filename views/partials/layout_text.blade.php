@@ -2,7 +2,7 @@
     id="post-text-wrapper-{{ $id }}-{{ $blog_post['post-text-' . $id]['#content-id'] }}"
 		class="collidable"
     position="{{ $position['x'] }} 0 {{ ($position['z'] + 0.001) }}"
-    look-at="0 0 0"
+    look-at="#camera-wrapper"
     color="{{ $blog_post['post-text-image-background-color-' . $id]['#value'] }}"
     width="2"
     height="3"

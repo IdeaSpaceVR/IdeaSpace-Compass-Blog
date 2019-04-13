@@ -13,10 +13,12 @@
 						isvr-scene="sound: none"
 				@endif 
 				light="defaultLightsEnabled: false" 
+				background="color: #000000" 
+				loading-screen="dotsColor: #FFFFFF; backgroundColor: #000000"
 				@if (isset($content['general-settings'][0]) && $content['general-settings'][0]['antialiasing']['#value'] == 'off') 
-						antialias="off" 
+						renderer="antialias: false" 
 				@else 
-						antialias="on" 
+						renderer="antialias: true" 
 				@endif>
 
         <a-assets>
@@ -31,7 +33,6 @@
 
 				<a-entity id="sound-click" sound="src: #audio-click"></a-entity>
 
-				<a-sky color="#000000"></a-sky>
 				@if (isset($content['general-settings'][0]['sky']) && $content['general-settings'][0]['sky']['#value'] == 'stars') 
 						<a-entity star-system="count: 1000; color: @if (isset($content['general-settings'][0]['sky-stars-color'])) {{ $content['general-settings'][0]['sky-stars-color']['#value'] }} @else #000000 @endif"></a-entity>
 				@endif
@@ -186,7 +187,7 @@
 						segments="64" 
 						radius="1.2" 
 						color="@if (isset($content['general-settings'][0]['about-blog-background-color'])) {{ $content['general-settings'][0]['about-blog-background-color']['#value'] }} @else #FFFFFF @endif" 
-						look-at="0 0 0">	
+						look-at="#camera-wrapper">	
 						<a-image 
 								src="#windrose" 
 								width="2" 
@@ -203,7 +204,7 @@
 						visible="false"
 						isvr-blog-post-rotation="dir: left"
 						position="1.5 -1 -0.5"
-						look-at="0 0 0"
+						look-at="#camera-wrapper"
 						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #blog-post-rotate-left-texture; transparent: true; ratio: width">
 				</a-entity>
@@ -213,7 +214,7 @@
 						visible="false"
 						isvr-blog-post-rotation="dir: right"
 						position="1.5 -1 0.5"
-						look-at="0 0 0"
+						look-at="#camera-wrapper"
 						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #blog-post-rotate-right-texture; transparent: true; ratio: width">
 				</a-entity>
@@ -223,7 +224,7 @@
 						class="collidable"
 						isvr-about-link
 						position="1.5 -1 0"
-						look-at="0 0 0"
+						look-at="#camera-wrapper"
 						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
 				</a-entity>
@@ -257,13 +258,17 @@
 						id="ideaspacevr" 
 						class="collidable"
 						position="1.5 -1.3 0"
-						look-at="0 0 0"
+						look-at="#camera-wrapper"
 						geometry="primitive: plane; width: 1.2"
 						material="shader: html; target: #ideaspacevr-texture; transparent: true; ratio: width">
 				</a-entity>
 
+				<a-entity 
+						id="forward-pos" 
+						position="-{{ $positions[0]['x'] }} 0 0">
+				</a-entity>
 
-				<a-entity id="camera-wrapper" @if (isset($positions) && !is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
+				<a-entity id="camera-wrapper" @if (isset($positions) && !is_null($positions)) look-at="#forward-pos" @endif>
 						<a-entity camera look-controls>
 								<a-entity
                     cursor="fuse: false; rayOrigin: mouse"
@@ -276,10 +281,10 @@
 				</a-entity>
 
 
-				<a-entity class="laser-controls-wrapper" @if (isset($positions) && !is_null($positions)) look-at="-{{ $positions[0]['x'] }} 0 0" @endif>
+				<a-entity class="laser-controls-wrapper" @if (isset($positions) && !is_null($positions)) look-at="#forward-pos" @endif>
 				</a-entity>
 
-				<!--a-entity log look-at="0 0 0" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
+				<!--a-entity log look-at="#camera-wrapper" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
 
 		</a-scene>
 

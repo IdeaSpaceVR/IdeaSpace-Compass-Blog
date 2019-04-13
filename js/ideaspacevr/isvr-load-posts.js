@@ -25,7 +25,12 @@ var posts = {
 
         if (this.xmlhttp.readyState == 4 && this.xmlhttp.status == 200) {
 
-            var obj = JSON.parse(this.xmlhttp.responseText);
+						var obj = null;
+						try {
+            		obj = JSON.parse(this.xmlhttp.responseText);
+						} catch (e) {
+								return;
+						}
 
             for (var i=0; i<obj['blog-posts'].length; i++) {
 
@@ -115,7 +120,7 @@ var posts = {
 
 						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
-						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper.setAttribute('look-at', '#camera-wrapper');
 						wrapper.setAttribute('width', 2);
 						wrapper.setAttribute('height', 3);
 						wrapper.setAttribute('top-left-radius', 0.06);
@@ -176,7 +181,7 @@ var posts = {
 						wrapper_active.setAttribute('color', '#0080e5');
 						wrapper_active.className = 'collidable';
 						wrapper_active.setAttribute('visible', false);
-						wrapper_active.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper_active.setAttribute('look-at', '#camera-wrapper');
 						wrapper_active.setAttribute('width', 2);
 						wrapper_active.setAttribute('height', 0.5);
 						wrapper_active.setAttribute('top-left-radius', 0.06);
@@ -192,7 +197,7 @@ var posts = {
 						} else {
 								wrapper.setAttribute('position', { x: position['x'], y: 0, z: (position['z'] - 0.001) });
 						}
-						wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+						wrapper.setAttribute('look-at', '#camera-wrapper');
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 						wrapper.className = 'collidable';
 						wrapper.setAttribute('width', 1.95);
@@ -232,7 +237,7 @@ var posts = {
 										var wrapper = document.createElement('a-rounded');
 										wrapper.id = 'post-image-wrapper-' + id + '-' + cid;
 										wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
-										wrapper.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+										wrapper.setAttribute('look-at', '#camera-wrapper');
 										wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 										wrapper.setAttribute('width', 2);
 										/* use imageTexture because it is loaded and width and height is set */
@@ -305,7 +310,7 @@ var posts = {
 				title.dataset.cid = cid;
 				title.setAttribute('geometry', { primitive: 'plane', width: 2 });
 				title.setAttribute('position', { x: this.positions[0]['x'], y: 0, z: this.positions[0]['z'] });
-				title.setAttribute('look-at', { x: 0, y: 0, z: 0 });
+				title.setAttribute('look-at', '#camera-wrapper');
 				title.setAttribute('material', { shader: 'html', target: '#post-title-texture-' + cid, transparent: true, ratio: 'width' });
 
 				if (post_counter > 0) {
