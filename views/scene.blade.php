@@ -99,71 +99,71 @@
 
 												@if ($blog_post['post-display-north-east']['#value'] != 'none')
 														@if ($blog_post['post-display-north-east']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[1], 'id' => 'north-east'])
+																@include('theme::partials.layout_text', ['position' => $positions[1], 'rotation_y' => -135, 'id' => 'north-east'])
 														@elseif ($blog_post['post-display-north-east']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[1], 'id' => 'north-east'])
+																@include('theme::partials.layout_image', ['position' => $positions[1], 'rotation_y' => -135, 'id' => 'north-east'])
 														@elseif ($blog_post['post-display-north-east']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[1], 'id' => 'north-east'])
+																@include('theme::partials.layout_link', ['position' => $positions[1], 'rotation_y' => -135, 'id' => 'north-east'])
 														@endif
 												@endif
 
 												@if ($blog_post['post-display-east']['#value'] != 'none')
 														@if ($blog_post['post-display-east']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[2], 'id' => 'east'])
+																@include('theme::partials.layout_text', ['position' => $positions[2], 'rotation_y' => 180, 'id' => 'east'])
 														@elseif ($blog_post['post-display-east']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[2], 'id' => 'east'])
+																@include('theme::partials.layout_image', ['position' => $positions[2], 'rotation_y' => 180, 'id' => 'east'])
 														@elseif ($blog_post['post-display-east']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[2], 'id' => 'east'])
+																@include('theme::partials.layout_link', ['position' => $positions[2], 'rotation_y' => 180, 'id' => 'east'])
 														@endif
 												@endif
 
 												@if ($blog_post['post-display-south-east']['#value'] != 'none')
 														@if ($blog_post['post-display-south-east']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[3], 'id' => 'south-east'])
+																@include('theme::partials.layout_text', ['position' => $positions[3], 'rotation_y' => 135, 'id' => 'south-east'])
 														@elseif ($blog_post['post-display-south-east']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[3], 'id' => 'south-east'])
+																@include('theme::partials.layout_image', ['position' => $positions[3], 'rotation_y' => 135, 'id' => 'south-east'])
 														@elseif ($blog_post['post-display-south-east']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[3], 'id' => 'south-east'])
+																@include('theme::partials.layout_link', ['position' => $positions[3], 'rotation_y' => 135, 'id' => 'south-east'])
 														@endif
 												@endif
 
 												@if ($blog_post['post-display-south']['#value'] != 'none')
 														@if ($blog_post['post-display-south']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[4], 'id' => 'south'])
+																@include('theme::partials.layout_text', ['position' => $positions[4], 'rotation_y' => 90, 'id' => 'south'])
 														@elseif ($blog_post['post-display-south']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[4], 'id' => 'south'])
+																@include('theme::partials.layout_image', ['position' => $positions[4], 'rotation_y' => 90, 'id' => 'south'])
 														@elseif ($blog_post['post-display-south']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[4], 'id' => 'south'])
+																@include('theme::partials.layout_link', ['position' => $positions[4], 'rotation_y' => 90, 'id' => 'south'])
 														@endif
 												@endif
 
 												@if ($blog_post['post-display-south-west']['#value'] != 'none')
 														@if ($blog_post['post-display-south-west']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[5], 'id' => 'south-west'])
+																@include('theme::partials.layout_text', ['position' => $positions[5], 'rotation_y' => 45, 'id' => 'south-west'])
 														@elseif ($blog_post['post-display-south-west']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[5], 'id' => 'south-west'])
+																@include('theme::partials.layout_image', ['position' => $positions[5], 'rotation_y' => 45, 'id' => 'south-west'])
 														@elseif ($blog_post['post-display-south-west']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[5], 'id' => 'south-west'])
+																@include('theme::partials.layout_link', ['position' => $positions[5], 'rotation_y' => 45, 'id' => 'south-west'])
 														@endif
 												@endif
 
 												@if ($blog_post['post-display-west']['#value'] != 'none')
 														@if ($blog_post['post-display-west']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[6], 'id' => 'west'])
+																@include('theme::partials.layout_text', ['position' => $positions[6], 'rotation_y' => 0, 'id' => 'west'])
 														@elseif ($blog_post['post-display-west']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[6], 'id' => 'west'])
+																@include('theme::partials.layout_image', ['position' => $positions[6], 'rotation_y' => 0, 'id' => 'west'])
 														@elseif ($blog_post['post-display-west']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[6], 'id' => 'west'])
+																@include('theme::partials.layout_link', ['position' => $positions[6], 'rotation_y' => 0, 'id' => 'west'])
 														@endif
 												@endif
 
 												@if ($blog_post['post-display-north-west']['#value'] != 'none')
 														@if ($blog_post['post-display-north-west']['#value'] == 'text')
-																@include('theme::partials.layout_text', ['position' => $positions[7], 'id' => 'north-west'])
+																@include('theme::partials.layout_text', ['position' => $positions[7], 'rotation_y' => -45, 'id' => 'north-west'])
 														@elseif ($blog_post['post-display-north-west']['#value'] == 'image')
-																@include('theme::partials.layout_image', ['position' => $positions[7], 'id' => 'north-west'])
+																@include('theme::partials.layout_image', ['position' => $positions[7], 'rotation_y' => -45, 'id' => 'north-west'])
 														@elseif ($blog_post['post-display-north-west']['#value'] == 'link')
-																@include('theme::partials.layout_link', ['position' => $positions[7], 'id' => 'north-west'])
+																@include('theme::partials.layout_link', ['position' => $positions[7], 'rotation_y' => -45, 'id' => 'north-west'])
 														@endif
 												@endif
 
@@ -187,7 +187,7 @@
 						segments="64" 
 						radius="1.2" 
 						color="@if (isset($content['general-settings'][0]['about-blog-background-color'])) {{ $content['general-settings'][0]['about-blog-background-color']['#value'] }} @else #FFFFFF @endif" 
-						look-at="#camera-wrapper">	
+						rotation="-90 0 0">	
 						<a-image 
 								src="#windrose" 
 								width="2" 
@@ -204,7 +204,7 @@
 						visible="false"
 						isvr-blog-post-rotation="dir: left"
 						position="1.5 -1 -0.5"
-						look-at="#camera-wrapper"
+						rotation="-30 -90 0"
 						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #blog-post-rotate-left-texture; transparent: true; ratio: width">
 				</a-entity>
@@ -214,7 +214,7 @@
 						visible="false"
 						isvr-blog-post-rotation="dir: right"
 						position="1.5 -1 0.5"
-						look-at="#camera-wrapper"
+						rotation="-30 -90 0"
 						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #blog-post-rotate-right-texture; transparent: true; ratio: width">
 				</a-entity>
@@ -224,7 +224,7 @@
 						class="collidable"
 						isvr-about-link
 						position="1.5 -1 0"
-						look-at="#camera-wrapper"
+						rotation="-30 -90 0"
 						geometry="primitive: plane; width: 0.5"
 						material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
 				</a-entity>
@@ -258,17 +258,13 @@
 						id="ideaspacevr" 
 						class="collidable"
 						position="1.5 -1.3 0"
-						look-at="#camera-wrapper"
+						rotation="-30 -90 0"
 						geometry="primitive: plane; width: 1.2"
 						material="shader: html; target: #ideaspacevr-texture; transparent: true; ratio: width">
 				</a-entity>
 
-				<a-entity 
-						id="forward-pos" 
-						position="-{{ $positions[0]['x'] }} 0 0">
-				</a-entity>
 
-				<a-entity id="camera-wrapper" @if (isset($positions) && !is_null($positions)) look-at="#forward-pos" @endif>
+				<a-entity id="camera-wrapper" @if (isset($positions) && !is_null($positions)) rotation="0 -90 0" @endif>
 						<a-entity camera look-controls>
 								<a-entity
                     cursor="fuse: false; rayOrigin: mouse"
@@ -281,10 +277,10 @@
 				</a-entity>
 
 
-				<a-entity class="laser-controls-wrapper" @if (isset($positions) && !is_null($positions)) look-at="#forward-pos" @endif>
+				<a-entity class="laser-controls-wrapper" @if (isset($positions) && !is_null($positions)) rotation="0 -90 0" @endif>
 				</a-entity>
 
-				<!--a-entity log look-at="#camera-wrapper" geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
+				<!--a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
 
 		</a-scene>
 

@@ -1,9 +1,6 @@
 AFRAME.registerComponent('isvr-text-nav', {
 
 
-		dependencies: ['look-at'],
-
-
 		bindMethods: function () {
 
 				this.mouse_wheel_handler = this.mouse_wheel_handler.bind(this);
@@ -27,13 +24,12 @@ AFRAME.registerComponent('isvr-text-nav', {
 				this.bindMethods();
 
 				/* set top end position for text boxes higher than 3 */
-				/* removed, otherwise there is an issue with look-at and scrolling */
-				/*var offset = 0;
+				var offset = 0;
 				if ((this.el.getAttribute('height') / 2) > 3) {
 						offset = -(this.el.getAttribute('height') / 2) + 1;
 				}
 				this.el.setAttribute('position', { x: this.el.getAttribute('position').x, y: offset, z: this.el.getAttribute('position').z });
-				*/
+				
 
 				this.tcup_delta = -0.05; 
 				this.tcdown_delta = 0.05; 
@@ -197,11 +193,6 @@ AFRAME.registerComponent('isvr-text-nav', {
 						return;
 				}
 
-				/* workaround: remove look-at in order to allow correct scrolling */
-				if (this.el.getAttribute('look-at') !== null) {
-						this.el.removeAttribute('look-at');
-				}
-
 				var touch = e.touches[0];
 				var movementY = (touch.screenY - this.previousTouchY) * -1;
 
@@ -235,11 +226,6 @@ AFRAME.registerComponent('isvr-text-nav', {
 
 		
 		mouse_wheel_handler: function (e) {
-
-				/* workaround: remove look-at in order to allow correct scrolling */
-				if (this.el.getAttribute('look-at') !== null) {
-						this.el.removeAttribute('look-at');
-				}
 
 				var e = window.event || e; 
 		    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));

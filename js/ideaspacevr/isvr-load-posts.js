@@ -56,13 +56,13 @@ var posts = {
 
 
 								/* blog post textures and entities */
-								this.createBlogPostContent('north-east', cid, this.positions[1], textures, post, obj, i);
-								this.createBlogPostContent('east', cid, this.positions[2], textures, post, obj, i);
-								this.createBlogPostContent('south-east', cid, this.positions[3], textures, post, obj, i);
-								this.createBlogPostContent('south', cid, this.positions[4], textures, post, obj, i);
-								this.createBlogPostContent('south-west', cid, this.positions[5], textures, post, obj, i);
-								this.createBlogPostContent('west', cid, this.positions[6], textures, post, obj, i);
-								this.createBlogPostContent('north-west', cid, this.positions[7], textures, post, obj, i);
+								this.createBlogPostContent('north-east', cid, this.positions[1], -135, textures, post, obj, i);
+								this.createBlogPostContent('east', cid, this.positions[2], 180, textures, post, obj, i);
+								this.createBlogPostContent('south-east', cid, this.positions[3], 135, textures, post, obj, i);
+								this.createBlogPostContent('south', cid, this.positions[4], 90, textures, post, obj, i);
+								this.createBlogPostContent('south-west', cid, this.positions[5], 45, textures, post, obj, i);
+								this.createBlogPostContent('west', cid, this.positions[6], 0, textures, post, obj, i);
+								this.createBlogPostContent('north-west', cid, this.positions[7], -45, textures, post, obj, i);
 
 								this.post_counter++;
 
@@ -102,7 +102,7 @@ var posts = {
     }, /* responseHandler */
 
 
-		createBlogPostContent: function (id, cid, position, textureParent, post, obj, i) {
+		createBlogPostContent: function (id, cid, position, rotation_y, textureParent, post, obj, i) {
 
 				if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'text') {
 
@@ -120,7 +120,7 @@ var posts = {
 
 						wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
-						wrapper.setAttribute('look-at', '#camera-wrapper');
+						wrapper.setAttribute('rotation', { x: 0, y: rotation_y, z: 0 });
 						wrapper.setAttribute('width', 2);
 						wrapper.setAttribute('height', 3);
 						wrapper.setAttribute('top-left-radius', 0.06);
@@ -141,7 +141,7 @@ var posts = {
 						wrapper.appendChild(text);
 						post.appendChild(wrapper);
 
-						/* empty object needed, otherwise component is not added; add it later, in order to avoid trouble with look-at */
+						/* empty object needed, otherwise component is not added */
 						wrapper.setAttribute('isvr-text-nav', {});
 
 				} else if (obj['blog-posts'][i]['post-display-' + id]['#value'] == 'link') {
@@ -181,7 +181,7 @@ var posts = {
 						wrapper_active.setAttribute('color', '#0080e5');
 						wrapper_active.className = 'collidable';
 						wrapper_active.setAttribute('visible', false);
-						wrapper_active.setAttribute('look-at', '#camera-wrapper');
+						wrapper_active.setAttribute('rotation', { x: 0, y: rotation_y, z: 0 });
 						wrapper_active.setAttribute('width', 2);
 						wrapper_active.setAttribute('height', 0.5);
 						wrapper_active.setAttribute('top-left-radius', 0.06);
@@ -197,7 +197,7 @@ var posts = {
 						} else {
 								wrapper.setAttribute('position', { x: position['x'], y: 0, z: (position['z'] - 0.001) });
 						}
-						wrapper.setAttribute('look-at', '#camera-wrapper');
+						wrapper.setAttribute('rotation', { x: 0, y: rotation_y, z: 0 });
 						wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 						wrapper.className = 'collidable';
 						wrapper.setAttribute('width', 1.95);
@@ -237,7 +237,7 @@ var posts = {
 										var wrapper = document.createElement('a-rounded');
 										wrapper.id = 'post-image-wrapper-' + id + '-' + cid;
 										wrapper.setAttribute('position', { x: position['x'], y: 0, z: position['z'] });
-										wrapper.setAttribute('look-at', '#camera-wrapper');
+										wrapper.setAttribute('rotation', { x: 0, y: rotation_y, z: 0 });
 										wrapper.setAttribute('color', obj['blog-posts'][i]['post-text-image-background-color-' + id]['#value']);
 										wrapper.setAttribute('width', 2);
 										/* use imageTexture because it is loaded and width and height is set */
@@ -310,7 +310,7 @@ var posts = {
 				title.dataset.cid = cid;
 				title.setAttribute('geometry', { primitive: 'plane', width: 2 });
 				title.setAttribute('position', { x: this.positions[0]['x'], y: 0, z: this.positions[0]['z'] });
-				title.setAttribute('look-at', '#camera-wrapper');
+				title.setAttribute('rotation', { x: 0, y: -90, z: 0 });
 				title.setAttribute('material', { shader: 'html', target: '#post-title-texture-' + cid, transparent: true, ratio: 'width' });
 
 				if (post_counter > 0) {

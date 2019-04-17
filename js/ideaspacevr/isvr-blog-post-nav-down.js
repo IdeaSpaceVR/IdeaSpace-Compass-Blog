@@ -34,14 +34,27 @@ AFRAME.registerComponent('isvr-blog-post-nav-down', {
 
 				this.el.addEventListener('mouseenter', function(evt) {
 						document.querySelector('#' + self.data.id).setAttribute('material', 'target', '#navigation-arrow-down-hover-texture');
+
+/*if (this.el.sceneEl.is('entered-vr')) {
+
+            var laser_controls = document.querySelectorAll('.laser-controls');
+            if (laser_controls != null) {
+                for (var i = 0; i < laser_controls.length; i++) {
+
+                    laser_controls[i].addEventListener('thumbstart', function() { this.el.emit('click'); }, false);
+                }
+            }
+        }*/
+
         });
 
         this.el.addEventListener('mouseleave', function() {
 						document.querySelector('#' + self.data.id).setAttribute('material', 'target', '#navigation-arrow-down-texture');
         });
 
+				//this.el.addEventListener('thumbstart', function() {
 				this.el.addEventListener('click', function() {
-
+AFRAME.log('in');
 						document.querySelector('#posts-wrapper').setAttribute('rotation', { x: 0, y: 0, z: 0 });
 
 						// 1, 4, 7, 10, 13
