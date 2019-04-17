@@ -27,7 +27,7 @@ AFRAME.registerComponent('isvr-blog-post-nav-up', {
 
 				this.el.addEventListener('click', function() {
 
-						document.querySelector('#posts-wrapper').setAttribute('rotation', { x: 0, y: 0, z: 0 });
+						//document.querySelector('#posts-wrapper').setAttribute('rotation', { x: 0, y: 0, z: 0 });
 
 						soundClick.components.sound.stopSound();
             soundClick.components.sound.playSound();
