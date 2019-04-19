@@ -48,6 +48,8 @@ AFRAME.registerComponent('isvr-blog-post-rotation', {
 
                     laser_controls[i].addEventListener('thumbstart', this.thumbstart_handler, false);
                     laser_controls[i].addEventListener('thumbend', this.thumbend_handler, false);
+                    laser_controls[i].addEventListener('mousedown', this.thumbstart_handler, false);
+                    laser_controls[i].addEventListener('mouseup', this.thumbend_handler, false);
                 }
             }
         }
@@ -72,6 +74,8 @@ AFRAME.registerComponent('isvr-blog-post-rotation', {
 
                     laser_controls[i].removeEventListener('thumbstart', this.thumbstart_handler, false);
                     laser_controls[i].removeEventListener('thumbend', this.thumbend_handler, false);
+                    laser_controls[i].removeEventListener('mousedown', this.thumbstart_handler, false);
+                    laser_controls[i].removeEventListener('mouseup', this.thumbend_handler, false);
                 }
             }
         }
