@@ -1,4 +1,4 @@
-@extends('theme::index')
+@extends('theme::index-painter')
 
 @section('title', $space_title)
 
@@ -6,11 +6,11 @@
 
 		<a-scene 
 				@if (isset($content['general-settings'][0]['blog-audio']) && $content['general-settings'][0]['blog-audio']['#value'] == 'piano-0') 
-						isvr-scene="sound: {{ url($theme_dir . '/assets/audio/262259__shadydave__snowfall-final.mp3') }}"
+						isvr-scene-painter="sound: {{ url($theme_dir . '/assets/audio/262259__shadydave__snowfall-final.mp3') }}"
 				@elseif (isset($content['general-settings'][0]['blog-audio']) && $content['general-settings'][0]['blog-audio']['#value'] == 'birds-0') 
-						isvr-scene="sound: {{ url($theme_dir . '/assets/audio/birds-0.mp3') }}"
+						isvr-scene-painter="sound: {{ url($theme_dir . '/assets/audio/birds-0.mp3') }}"
 				@else 
-						isvr-scene="sound: none"
+						isvr-scene-painter="sound: none"
 				@endif 
 				light="defaultLightsEnabled: false" 
 				background="color: #000000" 
@@ -29,7 +29,16 @@
 						@endif
 
 						<img id="windrose" width="512" height="512" src="{{ url($theme_dir . '/assets/images/windrose.svg') }}" crossorigin>
+
+
+						@php painter_assets(); @endphp
+
+
 				</a-assets>
+
+
+				@php painter_entities(); @endphp
+
 
 				<a-entity id="sound-click" sound="src: #audio-click"></a-entity>
 
@@ -69,6 +78,7 @@
 
 						<a-entity 
 								position="0 0 0" 
+								rotation="0 90 0" 
 								id="posts-wrapper" 
 								@foreach ($content['blog-posts'] as $blog_post)
 										@if ($post_counter < $max_posts)
@@ -181,92 +191,99 @@
 				@endif
 
 				
-				<a-circle
-						id="windrose-wrapper" 
-						position="0 -3 0" 
-						segments="64" 
-						radius="1.2" 
-						color="@if (isset($content['general-settings'][0]['about-blog-background-color'])) {{ $content['general-settings'][0]['about-blog-background-color']['#value'] }} @else #FFFFFF @endif" 
-						rotation="-90 0 0">	
-						<a-image 
-								src="#windrose" 
-								width="2" 
-								height="2" 
-								rotation="0 0 -90" 
-								position="0 0 0.001">
-						</a-image>
-				</a-circle>	
+				<a-entity 
+						id="dashboard-wrapper"
+						position="0 0 0" 
+						rotation="0 90 0"> 
+
+						<a-circle
+								id="windrose-wrapper" 
+								position="0 -3 0" 
+								segments="64" 
+								radius="1.2" 
+								color="@if (isset($content['general-settings'][0]['about-blog-background-color'])) {{ $content['general-settings'][0]['about-blog-background-color']['#value'] }} @else #FFFFFF @endif" 
+								rotation="-90 0 0">	
+								<a-image 
+										src="#windrose" 
+										width="2" 
+										height="2" 
+										rotation="0 0 -90" 
+										position="0 0 0.001">
+								</a-image>
+						</a-circle>	
 
 
-				<a-entity 
-						id="blog-post-rotate-left" 
-						class="blog-post-rotate collidable"
-						visible="false"
-						isvr-blog-post-rotation="dir: left"
-						position="1.5 -1 -0.5"
-						rotation="-30 -90 0"
-						geometry="primitive: plane; width: 0.5"
-						material="shader: html; target: #blog-post-rotate-left-texture; transparent: true; ratio: width">
-				</a-entity>
-				<a-entity 
-						id="blog-post-rotate-right" 
-						class="blog-post-rotate collidable"
-						visible="false"
-						isvr-blog-post-rotation="dir: right"
-						position="1.5 -1 0.5"
-						rotation="-30 -90 0"
-						geometry="primitive: plane; width: 0.5"
-						material="shader: html; target: #blog-post-rotate-right-texture; transparent: true; ratio: width">
-				</a-entity>
-				@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
-				<a-entity 
-						id="about-link" 
-						class="collidable"
-						isvr-about-link
-						position="1.5 -1 0"
-						rotation="-30 -90 0"
-						geometry="primitive: plane; width: 0.5"
-						material="shader: html; target: #about-link-texture; transparent: true; ratio: width">
-				</a-entity>
-				<a-rounded
-						id="about-wrapper"
-						class="collidable"
-						position="{{ ($positions[0]['x'] - 0.001) }} -10 {{ $positions[0]['z'] }}"
-						rotation="0 -90 0"
-						color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}"
-						width="3"
-						height="3"
-						animation__show_about="property: position; dur: 1000; easing: easeInOutElastic; to: {{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}; startEvents: show-about"
-						animation__hide_about="property: position; dur: 1000; to: {{ ($positions[0]['x'] - 0.001) }} -10 {{ $positions[0]['z'] }}; startEvents: hide-about"
-						visible="false"
-						top-left-radius="0.06"
-						top-right-radius="0.06"
-						bottom-left-radius="0.06"
-						bottom-right-radius="0.06">
-						<a-circle id="about-image" radius="0.3" src="#about-image-texture"></a-circle>
-						<a-entity
-								id="about"
-								geometry="primitive: plane; width: 2.8"
-								position="0 0 0.001"
-								material="shader: html; target: #about-texture; transparent: true; ratio: width">
+						<a-entity 
+								id="blog-post-rotate-left" 
+								class="blog-post-rotate collidable"
+								visible="false"
+								isvr-blog-post-rotation="dir: left"
+								position="1.5 -1 -0.5"
+								rotation="-30 -90 0"
+								geometry="primitive: plane; width: 0.5"
+								material="shader: html; side: double; target: #blog-post-rotate-left-texture; transparent: true; ratio: width">
 						</a-entity>
-				</a-rounded>
-				@endif
+						<a-entity 
+								id="blog-post-rotate-right" 
+								class="blog-post-rotate collidable"
+								visible="false"
+								isvr-blog-post-rotation="dir: right"
+								position="1.5 -1 0.5"
+								rotation="-30 -90 0"
+								geometry="primitive: plane; width: 0.5"
+								material="shader: html; side: double; target: #blog-post-rotate-right-texture; transparent: true; ratio: width">
+						</a-entity>
+						@if (isset($content['general-settings'][0]['blog-icon']) || isset($content['general-settings'][0]['blog-about']))
+						<a-entity 
+								id="about-link" 
+								class="collidable"
+								isvr-about-link
+								position="1.5 -1 0"
+								rotation="-30 -90 0"
+								geometry="primitive: plane; width: 0.5"
+								material="shader: html; side: double; target: #about-link-texture; transparent: true; ratio: width">
+						</a-entity>
+						<a-rounded
+								id="about-wrapper"
+								class="collidable"
+								position="{{ ($positions[0]['x'] - 0.001) }} -10 {{ $positions[0]['z'] }}"
+								rotation="0 -90 0"
+								color="{{ $content['general-settings'][0]['about-blog-background-color']['#value'] }}"
+								width="3"
+								height="3"
+								animation__show_about="property: position; dur: 1000; easing: easeInOutElastic; to: {{ ($positions[0]['x'] - 0.001) }} 0 {{ $positions[0]['z'] }}; startEvents: show-about"
+								animation__hide_about="property: position; dur: 1000; to: {{ ($positions[0]['x'] - 0.001) }} -10 {{ $positions[0]['z'] }}; startEvents: hide-about"
+								visible="false"
+								top-left-radius="0.06"
+								top-right-radius="0.06"
+								bottom-left-radius="0.06"
+								bottom-right-radius="0.06">
+								<a-circle id="about-image" radius="0.3" src="#about-image-texture"></a-circle>
+								<a-entity
+										id="about"
+										geometry="primitive: plane; width: 2.8"
+										position="0 0 0.001"
+										material="shader: html; side: double; target: #about-texture; transparent: true; ratio: width">
+								</a-entity>
+						</a-rounded>
+						@endif
 
 
-				<a-entity 
-						id="ideaspacevr" 
-						class="collidable"
-						position="1.5 -1.3 0"
-						rotation="-30 -90 0"
-						geometry="primitive: plane; width: 1.2"
-						material="shader: html; target: #ideaspacevr-texture; transparent: true; ratio: width">
+						<a-entity 
+								id="ideaspacevr" 
+								class="collidable"
+								position="1.5 -1.3 0"
+								rotation="-30 -90 0"
+								geometry="primitive: plane; width: 1.2"
+								material="shader: html; side: double; target: #ideaspacevr-texture; transparent: true; ratio: width">
+						</a-entity>
+
 				</a-entity>
 
 
 
 
-				<!--a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
+				<!--a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1.5"></a-entity//-->
 
 		</a-scene>
 

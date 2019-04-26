@@ -650,7 +650,7 @@ return [
           '#description' => 'description.paint_on_post',
           '#help' => 'help.painter_help',
           '#type' => 'painter',
-          '#scene-template' => 'scene-painter',
+          '#scene-template' => 'scene-painter', /* scene without camera and laser-controls */
           '#required' => false,
         ],
 
