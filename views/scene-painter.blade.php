@@ -272,7 +272,7 @@
 						<a-entity 
 								id="ideaspacevr" 
 								class="collidable"
-								position="1.5 -1.3 0"
+								position="1.5 -1.25 0"
 								rotation="-30 -90 0"
 								geometry="primitive: plane; width: 1.2"
 								material="shader: html; side: double; target: #ideaspacevr-texture; transparent: true; ratio: width">
@@ -337,7 +337,7 @@
 
 
 				<div id="ideaspacevr-texture">
-				IdeaSpace Compass Blog theme<br>by IdeaSpaceVR
+				{{ $space_title }}
 				</div>
 
 
