@@ -97,7 +97,9 @@
                         @include('theme::partials.post_title', ['position' => $positions[0], 'post_counter' => $post_counter])
 
 												@if (isset($blog_post['post-painter']['#value']))
-                            <a-entity position="0 -1.6 0" rotation="0 -90 0" a-painter-loader="src: {{ url($blog_post['post-painter']['#value']) }}"></a-entity>
+                            @foreach ($blog_post['post-painter']['#value'] as $painting)
+                                <a-entity position="0 -1.6 0" rotation="0 -90 0" a-painter-loader="src: {{ url($painting) }}"></a-entity>
+                            @endforeach
                         @endif
 
                         @if ($blog_post['post-display-north-east']['#value'] != 'none')
