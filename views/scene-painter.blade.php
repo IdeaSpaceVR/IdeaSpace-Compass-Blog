@@ -107,6 +107,10 @@
 
 												@include('theme::partials.post_title', ['position' => $positions[0], 'post_counter' => $post_counter])
 
+												@if (isset($blog_post['post-painter']['#value']))
+														<a-entity a-painter-loader="src: {{ url($blog_post['post-painter']['#value']) }}"></a-entity>
+												@endif
+
 												@if ($blog_post['post-display-north-east']['#value'] != 'none')
 														@if ($blog_post['post-display-north-east']['#value'] == 'text')
 																@include('theme::partials.layout_text', ['position' => $positions[1], 'rotation_y' => -135, 'id' => 'north-east'])

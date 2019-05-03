@@ -354,8 +354,19 @@ var posts = {
 
 						title.appendChild(nav_down);
 				}
-				
+
+
 				post.appendChild(title);
+
+				if (('post-painter' in obj['blog-posts'][i]) === true) {
+
+						var painting = document.createElement('a-entity');			
+						painting.setAttribute('position', { x: 0, y: -1.6, z: 0 });
+						painting.setAttribute('rotation', { x: 0, y: -90, z: 0 });
+						painting.setAttribute('a-painter-loader', { src: window.ideaspace_site_path + '/' + obj['blog-posts'][i]['post-painter']['#value'] });
+						post.appendChild(painting);	
+				}
+				
 
 		} /* createBlogPostTitleContent */
 

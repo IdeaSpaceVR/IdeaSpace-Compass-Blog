@@ -96,6 +96,10 @@
 
                         @include('theme::partials.post_title', ['position' => $positions[0], 'post_counter' => $post_counter])
 
+												@if (isset($blog_post['post-painter']['#value']))
+                            <a-entity position="0 -1.6 0" rotation="0 -90 0" a-painter-loader="src: {{ url($blog_post['post-painter']['#value']) }}"></a-entity>
+                        @endif
+
                         @if ($blog_post['post-display-north-east']['#value'] != 'none')
                             @if ($blog_post['post-display-north-east']['#value'] == 'text')
                                 @include('theme::partials.layout_text', ['position' => $positions[1], 'rotation_y' => -135, 'id' => 'north-east'])
@@ -383,6 +387,7 @@
 		var positions = {!! json_encode($positions) !!};
 		var prev_post_counter = 1;
 		var posts_loaded = [];
+		window.ideaspace_site_path = '{{ url('/') }}';
 
     (function() {
         /* DOM is loaded */
