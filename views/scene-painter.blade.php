@@ -109,7 +109,7 @@
 
 												@if (isset($blog_post['post-painter']['#value']))
 														@foreach ($blog_post['post-painter']['#value'] as $painting)
-																<a-entity a-painter-loader="src: {{ url($painting) }}"></a-entity>
+																<a-entity class="painting" a-painter-loader="src: {{ url($painting) }}"></a-entity>
 														@endforeach
 												@endif
 

@@ -13,10 +13,16 @@ AFRAME.registerComponent('isvr-scene-painter', {
 
 				var self = this;
 
+				/* workaround because paintings cannot be positioned and otherwise they are wrongly positioned */
+				document.querySelector('[camera]').setAttribute('position', {x: 0, y: 1.6, z: 0});
+				document.querySelector('#posts-wrapper').setAttribute('position', {x: 0, y: 1.6, z: 0});
+				document.querySelector('#dashboard-wrapper').setAttribute('position', {x: 0, y: 1.6, z: 0});
+
         this.el.addEventListener('enter-vr', function() {
 
 						if (AFRAME.utils.device.checkHeadsetConnected()) {
 								/* workaround */
+								document.querySelector('[camera]').setAttribute('position', {x: 0, y: 0, z: 0});
                 document.querySelector('#posts-wrapper').setAttribute('position', {x: 0, y: 1.6, z: 0});
                 document.querySelector('#dashboard-wrapper').setAttribute('position', {x: 0, y: 1.6, z: 0});
             }
