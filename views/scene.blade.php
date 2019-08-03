@@ -284,7 +284,7 @@
 				<a-entity class="laser-controls-wrapper" @if (isset($positions) && !is_null($positions)) rotation="0 -90 0" @endif>
 				</a-entity>
 
-				<!--a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity//-->
+				<a-entity log geometry="primitive: plane" material="color: #111" text="color: lightgreen" position="0 0 -1"></a-entity>
 
 		</a-scene>
 

@@ -2,20 +2,28 @@ AFRAME.registerComponent('isvr-text-nav', {
 
 
 		bindMethods: function () {
-
+				
+				/* mouse nav */
 				this.mouse_wheel_handler = this.mouse_wheel_handler.bind(this);
 				this.mouseenter_handler = this.mouseenter_handler.bind(this);
 				this.mouseleave_handler = this.mouseleave_handler.bind(this);
 
+				/* touch screen nav */
 				this.touch_start_handler = this.touch_start_handler.bind(this);
 				this.touch_move_handler = this.touch_move_handler.bind(this);
 				this.touch_end_handler = this.touch_end_handler.bind(this);
 				this.touch_cancel_handler = this.touch_cancel_handler.bind(this);
 
+				/* thumbpads / thumbsticks vr controller nav */
 				this.thumbupstart_handler = this.thumbupstart_handler.bind(this);
 				this.thumbupend_handler = this.thumbupend_handler.bind(this);
 				this.thumbdownstart_handler = this.thumbdownstart_handler.bind(this);
 				this.thumbdownend_handler = this.thumbdownend_handler.bind(this);
+
+				/* trackpad oculus go controller nav */
+				this.trackpadtouchstart_handler = this.trackpadtouchstart_handler.bind(this);
+				this.trackpadmoved_handler = this.trackpadmoved_handler.bind(this);
+				this.trackpadtouchend_handler = this.trackpadtouchend_handler.bind(this);
 		},
 
 
@@ -67,13 +75,38 @@ AFRAME.registerComponent('isvr-text-nav', {
 		},
 
 
+		trackpadtouchstart_handler: function (e) {
+				this.trackpadtouchstart = true;
+		},
+
+
+		trackpadtouchend_handler: function (e) {
+				this.trackpadtouchstart = false;
+		},
+
+
+		trackpadmoved_handler: function (e) {
+
+				if (Math.abs(e.detail.y) > 0.5) {
+
+						this.trackpadmoveup = true;
+						this.trackpadmovedown = false;
+
+				} else if (Math.abs(e.detail.y) < 0.5) {
+
+						this.trackpadmoveup = false;
+						this.trackpadmovedown = true;
+				}
+		},
+
+
 		tick: function (time) {
 
 				if (!this.last_time || time - this.last_time >= 30) {
 
 						this.last_time = time;
 
-						if (this.thumbupstart == true && this.thumbdownstart == false) {
+						if ((this.thumbupstart == true && this.thumbdownstart == false) || (this.trackpadtouchstart == true && this.trackpadmoveup == true && this.trackpadmovedown == false)) {
 
 								var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
 
@@ -89,7 +122,7 @@ AFRAME.registerComponent('isvr-text-nav', {
 								}
 						}
 
-						if (this.thumbdownstart == true && this.thumbupstart == false) {
+						if ((this.thumbdownstart == true && this.thumbupstart == false) || (this.trackpadtouchstart == true && this.trackpadmovedown == true && this.trackpadmoveup == false)) {
 
 								var positionTmp = this.positionTmp = this.positionTmp || {x: 0, y: 0, z: 0};
 
@@ -137,6 +170,10 @@ AFRAME.registerComponent('isvr-text-nav', {
 										laser_controls[i].addEventListener('thumbdownstart', this.thumbdownstart_handler, false);
 										laser_controls[i].addEventListener('thumbdownend', this.thumbdownend_handler, false);
 
+										laser_controls[i].addEventListener('trackpadtouchstart', this.trackpadtouchstart_handler, false);
+										laser_controls[i].addEventListener('trackpadtouchend', this.trackpadtouchend_handler, false);
+										laser_controls[i].addEventListener('trackpadmoved', this.trackpadmoved_handler, false);
+
 										window.isvr_text_nav_tc_listenerset = true;
 								}
 						}
@@ -172,6 +209,10 @@ AFRAME.registerComponent('isvr-text-nav', {
 										laser_controls[i].removeEventListener('thumbupend', this.thumbupend_handler, false);
 										laser_controls[i].removeEventListener('thumbdownstart', this.thumbdownstart_handler, false);
 										laser_controls[i].removeEventListener('thumbdownend', this.thumbdownend_handler, false);
+
+										laser_controls[i].removeEventListener('trackpadtouchstart', this.trackpadtouchstart_handler, false);
+										laser_controls[i].removeEventListener('trackpadtouchend', this.trackpadtouchend_handler, false);
+										laser_controls[i].removeEventListener('trackpadmoved', this.trackpadmoved_handler, false);
 
 										window.isvr_text_nav_tc_listenerset = false;
 								}

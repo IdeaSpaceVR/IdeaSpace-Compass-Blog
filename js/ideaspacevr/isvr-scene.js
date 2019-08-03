@@ -42,6 +42,8 @@ AFRAME.registerComponent('isvr-scene', {
 								lcLeftEl.setAttribute('line', {color: '#FFFFFF'});
 								lcLeftEl.setAttribute('class', 'laser-controls');
 								lcLeftEl.setAttribute('thumb-controls', {hand: 'left'});
+								/* text nav with oculus go touch controls */
+								lcLeftEl.setAttribute('oculus-go-controls', {hand: 'left'});
 								wrapper.appendChild(lcLeftEl);
 
 								var lcRightEl = document.createElement('a-entity');
@@ -50,6 +52,8 @@ AFRAME.registerComponent('isvr-scene', {
 								lcRightEl.setAttribute('line', {color: '#FFFFFF'});
 								lcRightEl.setAttribute('class', 'laser-controls');
 								lcRightEl.setAttribute('thumb-controls', {hand: 'right'});
+								/* text nav with oculus go touch controls */
+								lcRightEl.setAttribute('oculus-go-controls', {hand: 'right'});
 								wrapper.appendChild(lcRightEl);
 						}
 
