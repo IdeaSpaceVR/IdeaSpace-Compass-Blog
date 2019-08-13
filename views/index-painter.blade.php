@@ -41,7 +41,6 @@
     <script src="{{ url($theme_dir . '/js/aframe-thumb-controls/aframe-thumb-controls-component.min.js') }}"></script>
 		<script src="{{ url($theme_dir . '/js/a-painter-loader-component/a-painter-loader-component.min.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/howler/howler.min.js') }}"></script>
-		<!--script src="{{ url($theme_dir . '/js/aframe-log-component.min.js') }}"></script//-->
 
     <script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-helpers.js') }}"></script>
 		<script src="{{ url($theme_dir . '/js/ideaspacevr/isvr-text-nav.js') }}"></script>		
