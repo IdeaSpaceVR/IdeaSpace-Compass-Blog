@@ -33,7 +33,7 @@
     }
     @endphp
 
-    <script src="{{ url($theme_dir . '/js/aframe/aframe-master.min.js') }}"></script>
+    <script src="{{ url($theme_dir . '/js/aframe/aframe-v1.0.0.min.js') }}"></script>
 		<script src="{{ url($theme_dir . '/js/aframe-star-system-component/aframe-star-system-component.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/aframe-html-shader/aframe-html-shader.min.js') }}"></script>
     <script src="{{ url($theme_dir . '/js/aframe-gif-shader/aframe-gif-shader.min.js') }}"></script>
