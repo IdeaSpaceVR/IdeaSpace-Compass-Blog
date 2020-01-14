@@ -1,7 +1,7 @@
 ## 1.1
 
-- Upgrade to A-Frame v1.0.0
-- WebXR support
+- Upgrade to A-Frame v1.0.3
+- WebXR Device API support added
 
 ## 1.0
 
